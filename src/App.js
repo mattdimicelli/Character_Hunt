@@ -3,6 +3,7 @@ import './App.css';
 import { FirestoreProvider, useFirebaseApp } from 'reactfire';
 import { getFirestore } from 'firebase/firestore';
 import Map from './components/Map';
+import MapSelector from './components/MapSelector';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   return (
     <FirestoreProvider sdk={firestore}>
       <div className="App">
+        <MapSelector />
         <Map />
       </div>
     </FirestoreProvider>
