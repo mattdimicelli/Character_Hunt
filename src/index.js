@@ -3,11 +3,31 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { FirebaseAppProvider } from 'reactfire';
+
+// Your web app's Firebase configuration
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyCARaB0qJdxnQhlacP3-kFR9GMBCShXrNk",
+
+  authDomain: "cyberpunk-character-hunt.firebaseapp.com",
+
+  projectId: "cyberpunk-character-hunt",
+
+  storageBucket: "cyberpunk-character-hunt.appspot.com",
+
+  messagingSenderId: "362032815844",
+
+  appId: "1:362032815844:web:340b449ca73e8c5c9616f1"
+
+};
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <FirebaseAppProvider firebaseConfig={firebaseConfig}>
     <App />
-  </React.StrictMode>,
+  </FirebaseAppProvider>,
   document.getElementById('root')
 );
 
