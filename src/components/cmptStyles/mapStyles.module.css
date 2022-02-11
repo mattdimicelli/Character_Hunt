@@ -1,0 +1,9 @@
+.preview {
+    width: 400px;
+} 
+
+@media (max-width: 600px) {
+    .preview {
+        width: 50%;
+    }
+}

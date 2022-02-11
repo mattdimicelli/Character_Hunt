@@ -1,12 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
 import { FirestoreProvider, useFirebaseApp } from 'reactfire';
 import { getFirestore } from 'firebase/firestore';
 import Map from './components/Map';
 import MapSelector from './components/MapSelector';
+import { useState } from 'react';
 
 
 function App() {
+  let [map, setMap] = useState(undefined);
 
   // Initialize firebase
   const app = useFirebaseApp();  //index.js contains FirebaseAppProvider
@@ -17,8 +17,11 @@ function App() {
   return (
     <FirestoreProvider sdk={firestore}>
       <div className="App">
-        <MapSelector />
+        
         <Map />
+        
+        {!map && <MapSelector />}
+        
       </div>
     </FirestoreProvider>
   );

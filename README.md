@@ -21,15 +21,7 @@ A Where's Waldo
 
 ### Built with
 
-- React (functional components utilizing hooks)
-- Tailwind CSS
-- gh-pages (to assist with pushing the app to Github Pages)
-- react-scrolls, for smooth scrolling feature
-- react-icons, to provide a standardized API to manipulate and utilize icons
-  from different sources
-- a personally and custom-made "Spanish" icon
-- Intersection-Observer API
-- A mobile-first, responsive design
+- CSS Modules
 
 ### What I learned
 
@@ -38,4 +30,11 @@ it is associated with an `<img>`.  I realized that as the size of the `<img>`
 changed (due to responsive design) the `<map>` functionality would break.  react-
 image-map creates an ImageMap component which solves this problem using percent-based
 map areas.
+
+It turns out that React does not natively support inline CSS media queries (eg. using a style object inline).  An external stylesheet can be used for media queries.  A "CSS Module" stylesheet (which must end in .module.css) are advantageous over regular stylesheets because the styles aren't accessible in children components; they are local scoped.  Alternatively a third-party library such as react-responsive or react-media-hook.  
+
+Use value of `unset` with CSS property `all` to remove all the default styles for
+a given element.
+
+
 

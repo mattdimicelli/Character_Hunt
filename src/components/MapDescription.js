@@ -1,11 +1,12 @@
 import CharDescription from './CharDescription';
 
 const MapDescription = ({characters}) => {
+    characters.map(character => <CharDescription character={character} />);
     return (
         <section>
             <h2>Universe 113</h2>
             <p>by Egor Klyuchnyk</p>
-            <CharDescription imgSrc={jonny_bravo} 
+            {/* <CharDescription imgSrc={jonny_bravo}  */}
             <section>
                 <img src={johnny_bravo} alt="Johnny Bravo" />
                 <h3>Johnny Bravo</h3>
