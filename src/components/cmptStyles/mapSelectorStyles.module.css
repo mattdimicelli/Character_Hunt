@@ -1,0 +1,62 @@
+.mapDescription {
+    width: 40%; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mapTitle {
+    font-size: 1.2rem;
+}
+
+    
+.modalContent {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 120px;
+    border-radius: 30px;
+    padding: 0;
+    bottom: 40px;
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    outline: none;
+}
+
+.modalContentTopDiv {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.preview {
+    width: 60%;
+    object-fit: cover;
+    max-height: 100%;
+} 
+
+
+
+@media (min-width: 600px) {
+    /* .preview {
+        width: 50%;
+    } */
+    .modalcontent {
+        left: 20%;
+        right: 20%;
+    }
+}

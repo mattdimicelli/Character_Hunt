@@ -36,5 +36,9 @@ It turns out that React does not natively support inline CSS media queries (eg. 
 Use value of `unset` with CSS property `all` to remove all the default styles for
 a given element.
 
+According to CSS Modules documentation, camelCase is recommended for class names (as opposed to kebab-case).  Names *could* be accessed with bracket notation for kebab-case but it could also cause issues.
+
+CSS `object-fit` property: `contain` fits according to aspect ratio, `fill` stretches object to fill, and `cover` overflows container but maintains ratio.
+
 
 
