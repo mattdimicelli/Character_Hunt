@@ -3,6 +3,9 @@ import bender from '../images/bender.png';
 import catdog from '../images/catdog.webp';
 import johnny_bravo from '../images/johnny2.webp';
 import predator from '../images/predator.webp';
+import styles from './cmptStyles/mapSelectorStyles.module.css';
+
+const { charDescriptionWhole, whereCharFrom, charName } = styles;
 
 const CharDescription = ({character}) => {
     let imgSrc;
@@ -28,16 +31,11 @@ const CharDescription = ({character}) => {
     }
     
     return (
-        <section style={{
-            height: '20%',
-            display: 'flex', 
-            justifyContent: 'space-between',
-            width: '90%'
-        }}>
+        <section className={charDescriptionWhole}>
                 <img src={imgSrc} alt={character} />
                 <div>
-                    <h3>{character}</h3>
-                    <p style={{margin: '0'}}>{whereFrom}</p>
+                    <h3 className={charName}>{character}</h3>
+                    <p className={whereCharFrom}>{whereFrom}</p>
                 </div>
         </section>
     )
