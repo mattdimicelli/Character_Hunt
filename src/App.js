@@ -3,6 +3,7 @@ import { getFirestore } from 'firebase/firestore';
 import Map from './components/Map';
 import MapSelector from './components/MapSelector';
 import { useState } from 'react';
+import './App.css';
 
 
 function App() {

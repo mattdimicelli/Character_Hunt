@@ -1,7 +1,7 @@
 import { ImArrowRight, ImArrowLeft } from 'react-icons/im';
 import styles from './cmptStyles/overlayStyles.module.css';
 
-const { whole, hunt, mapChooser, arrowButton, appTitle } = styles;
+const { whole, hunt, mapChooser, arrowButton, appTitle, mapChooserText } = styles;
 
 const OverlayElement = (props, contentElement) => {
     return (

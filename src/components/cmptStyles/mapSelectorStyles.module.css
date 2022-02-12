@@ -86,6 +86,8 @@
     background: linear-gradient(90deg, rgba(255,217,0) 0%, rgb(237, 87, 1) 35%, rgb(174, 0, 255) 100%); 
     -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    cursor: pointer;
+
 }
 
 .whereCharFrom {
@@ -143,5 +145,24 @@
     .charDescriptionWhole {
         justify-content: space-around;
     }
+}
 
+@media (min-width: 1200px) {
+    .mapTitle {
+        margin-top: 1.5rem;
+        font-size: 2.2rem;
+    }
+    .charName {
+        font-size: 1.3rem;
+    }
+    .whereCharFrom {
+        font-size: 1rem;
+    }
+    .egor {
+        font-size: 1rem;
+    }
+    .startButton {
+        padding: 0.4rem 1rem;
+        margin-bottom: 1rem;
+    }
 }
