@@ -1,6 +1,6 @@
 import { query, orderBy, collection, limit } from 'firebase/firestore';
 import { useFirestore, useFirestoreCollectionData  } from 'reactfire';
-import { HighScore } from './HighScore';
+import HighScore from './HighScore';
 import { uniqid } from 'uniqid';
     
 const HighScores = () => {
@@ -30,10 +30,7 @@ const HighScores = () => {
             <button type="button">Submit</button>
             <button type="button">Restart</button>
         </div>
-        
     )
-
-
 }
 
 export default HighScores;
