@@ -1,0 +1,94 @@
+.button {
+    text-transform: uppercase;
+    background: rgb(255,160,0);
+    background: linear-gradient(90deg, rgba(255,160,0,1) 0%, rgba(237,1,1,1) 35%, rgba(139,0,255,1) 100%); 
+    color: white;
+    padding: 0.4rem 0.4rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    border: 0;
+    width: 90%;
+    max-width: 175px;
+}
+
+.button:hover {
+	-webkit-transform: translateY(-1px);
+	transform: translateY(-1px);
+    background: rgb(255, 217, 0);
+    background: linear-gradient(90deg, rgba(255,217,0) 0%, rgb(237, 87, 1) 35%, rgb(174, 0, 255) 100%); 
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    cursor: pointer;
+}
+
+.caption {
+    font-size: 1.7rem;
+}
+
+.initialsInput {
+    width: 40%;
+    text-align: center;
+}
+
+.initialsForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.leftSide {
+    width: 60%;
+    max-height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+
+.modalContentTopDiv {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    padding: 0 0.5rem;
+}
+
+.rightSide {
+    width: 50%; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.scoreList {
+    font-size: 0.9rem;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.time {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+    .caption {
+        font-size: 1.9rem;
+    }
+    .scoreList {
+        font-size: 1.1rem;
+    }
+    .time {
+        font-size: 1.4rem;
+    }
+
+    .initialsForm {
+        font-size: 1.1rem;
+    }
+}

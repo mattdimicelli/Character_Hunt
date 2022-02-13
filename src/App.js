@@ -13,8 +13,8 @@ import ReactModal from 'react-modal';
 const { modalContent, overlay } = styles;
 
 function App() {
-  let [showMapSelector, setShowMapSelector] = useState(true);
-  let [showHighScores, setShowHighScores] = useState(false);
+  let [showMapSelector, setShowMapSelector] = useState(false);
+  let [showHighScores, setShowHighScores] = useState(true);
 
   // Initialize firebase
   const app = useFirebaseApp();  //index.js contains FirebaseAppProvider
