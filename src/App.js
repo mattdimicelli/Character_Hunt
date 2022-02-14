@@ -1,6 +1,6 @@
 import { FirestoreProvider, useFirebaseApp } from 'reactfire';
 import { getFirestore } from 'firebase/firestore';
-import Map from './components/Map';
+import Gameplay from './components/Gameplay';
 import MapSelector from './components/MapSelector';
 import HighScores from './components/HighScores';
 import { useState } from 'react';
@@ -14,7 +14,7 @@ const { modalContent, overlay } = styles;
 
 function App() {
   let [showMapSelector, setShowMapSelector] = useState(false);
-  let [showHighScores, setShowHighScores] = useState(true);
+  let [showHighScores, setShowHighScores] = useState(false);
 
   // Initialize firebase
   const app = useFirebaseApp();  //index.js contains FirebaseAppProvider
@@ -26,7 +26,7 @@ function App() {
     <FirestoreProvider sdk={firestore}>
       <div className="App">
         
-        <Map />
+        <Gameplay />
 
         {(showMapSelector || showHighScores) &&
         <ReactModal

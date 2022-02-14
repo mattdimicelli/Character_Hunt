@@ -2,7 +2,7 @@ import loc_preview from '../images/the_loc_nar_screenshot.jpg';
 import bender from '../images/bender.png';
 import catdog from '../images/catdog.webp';
 import johnny_bravo from '../images/johnny2.webp';
-import predator from '../images/predator.webp';
+import predator from '../images/predator.png';
 import styles from './cmptStyles/mapSelectorStyles.module.css';
 
 const { charDescriptionWhole, whereCharFrom, charName } = styles;

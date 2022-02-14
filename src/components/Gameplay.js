@@ -1,7 +1,12 @@
 import universe_113 from '../images/universe_113.jpg';
 import { ImageMap } from '@qiuz/react-image-map';
+import Timer from './Timer';
+import CharactersLeftDisplay from './CharactersLeftDisplay';
+import styles from './cmptStyles/gameplayStyles.module.css';
 
-const Map = () => {
+const {header, title, gameplayParentDiv, footer, footerText } = styles;
+
+const Gameplay = () => {
     const mapArea = [
         {
             // Jonny Bravo
@@ -51,18 +56,29 @@ const Map = () => {
             default:
                 char = 'None';
         }
-        console.log(char);
+        console.log(char);  
     }
     
     return (
-        <div>
+        <div className={gameplayParentDiv}>
+            <header className={header}>
+                <h1 className={title}>
+                    <div>Char</div>
+                    <div>Hunt</div>
+                </h1>
+                <Timer />
+                <CharactersLeftDisplay charsLeft={['Bender Rodriguez', 'Yautja', 'CatDog', 'Johnny Bravo']} />
+            </header>
             <ImageMap 
                 src={universe_113} 
                 map={mapArea} 
                 onMapClick={onMapClick}
             />
+            <footer className={footer}>
+                <span className={footerText}>App by Matt Di Micelli</span>
+            </footer>
         </div>
     )
 }
 
-export default Map;
+export default Gameplay;

@@ -40,5 +40,7 @@ According to CSS Modules documentation, camelCase is recommended for class names
 
 CSS `object-fit` property: `contain` fits according to aspect ratio, `fill` stretches object to fill, and `cover` overflows container but maintains ratio.
 
+One way to get Flexbox to shrink images to fit: set `nowrap` on the flexbox container, and then `width: 100%` on the `<img>` children.
+
 
 
