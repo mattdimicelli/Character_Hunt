@@ -2,6 +2,19 @@
     display: flex;
     align-items: center;
 }
+.charChooserDropdown {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+.chooserItem {
+    padding: 1vh 1vw;
+    font-size: 1vw;
+}
+.chooserItem:hover {
+    background-color: white;
+}
 .charIcons {
     display: none;
 }
@@ -21,7 +34,6 @@
     padding: 0.20rem;
     transition: all 0.25s ease-in-out;
 }
-
 .footerText:hover {
     opacity: 1;
 }
@@ -36,6 +48,11 @@
     padding: 0.25rem 0.5rem;
     align-items: center;
 }
+.imageMap {
+    /* the numbers following the url are x & y coords for cursor hotspot */
+    cursor: url('../../images/cursor32.png') 16 16, crosshair;
+}
+
 .numberLeft {
     all: unset;
     width: 40px;
@@ -78,6 +95,10 @@
         width: 100%;
         max-height: 80px;
     }
+    .imageMap {
+        /* the numbers following the url are x & y coords for cursor hotspot */
+        cursor: url('../../images/cursor64.png') 32 32, crosshair;
+    }
     .tippyStyle {
         display: none;
     }
@@ -102,5 +123,11 @@
     .footerText {
         font-size: 1.2rem;
         padding: 0.5rem 0.6rem;
+    }
+}
+@media (min-width: 1800px) {
+    .imageMap {
+        /* the numbers following the url are x & y coords for cursor hotspot */
+        cursor: url('../../images/cursor128.png') 64 64, crosshair;
     }
 }

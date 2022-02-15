@@ -1,8 +1,13 @@
 import uniqid from 'uniqid';
+import styles from './cmptStyles/gameplayStyles.module.css';
+
+const { charChooserDropdown, chooserItem } = styles;
 const CharChooserDropdown = ({charsLeft}) => {
     return (
-        <ul>
-            {charsLeft.map(char => <li key={uniqid()}>char</li>)}
+        <ul className={charChooserDropdown}>
+            {charsLeft.map(char => {
+             return <li className={chooserItem} key={uniqid()}>{char}</li>
+            })}
         </ul>
     )
 }

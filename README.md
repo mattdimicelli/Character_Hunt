@@ -42,5 +42,9 @@ CSS `object-fit` property: `contain` fits according to aspect ratio, `fill` stre
 
 One way to get Flexbox to shrink images to fit: set `nowrap` on the flexbox container, and then `width: 100%` on the `<img>` children.
 
+With tippy-react, if you're using a component element as a child of the Tippy component, you have to forward the ref to the DOM node.  If unable to do so, must wrap the 
+component element in a span.
+
+Creating a custom cursor using CSS and JS is quite complicated.  A simpler alternative is using an image as a custom cursor.  However, the max image size is 32x32px. 
 
 

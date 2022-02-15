@@ -1,48 +1,21 @@
 import universe_113 from '../images/universe_113.jpg';
 import { ImageMap } from '@qiuz/react-image-map';
-import Timer from './Timer';
-import CharactersLeftDisplayForHeader from './CharactersLeftDisplayForHeader';
 import CharChooserDropdown from './CharChooserDropdown';
 import styles from './cmptStyles/gameplayStyles.module.css';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; 
 import { followCursor } from 'tippy.js';
+import 'tippy.js/themes/material.css';
+import Header from './Header';
+import universe113MapArea from './universe113MapArea';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './cmptStyles/stylesToOverrideDefaultToastStyles.css';
 
-
-const {header, title, gameplayParentDiv, footer, footerText } = styles;
+const { gameplayParentDiv, footer, footerText, imageMap } = styles;
 
 const Gameplay = () => {
-    const mapArea = [
-        {
-            // Jonny Bravo
-            width: "3.5839420513515052%",
-            height: "3.508771929824562%",
-            left: "37.14598495594771%",
-            top: "34.3653250773994%",
-        },
-        {
-            // Cat Dog
-            width: "2.4817518248175183%",
-            height: "2.8895768833849327%",
-            left: "30.284671087334626%",
-            top: "45.09803921568628%",
-        },
-        {
-            // Bender
-            width: "1.6058394160583942%",
-            height: "1.4447884416924663%",
-            left: "90.13868568587478%",
-            top: "69.65944272445822%",
-        },
-        {
-            // Predator
-            width: "4.233576642335766%",
-            height: "3.0959752321981426%",
-            left: "57.729926561787195%",
-            top: "83.69453044375645%",
-        }
-    ];
-
+    
     function onMapClick(area, index) {
         let char;
         switch (index) {
@@ -63,31 +36,54 @@ const Gameplay = () => {
         }
         console.log(char);  
     }
+
+    function keepLooking () {
+        toast.error('Keep Looking!', {
+            icon: false,
+            theme: 'colored',
+        });
+    }
     
     return (
         <div className={gameplayParentDiv}>
-            <header className={header}>
-                <h1 className={title}>
-                    <div>Char</div>
-                    <div>Hunt</div>
-                </h1>
-                <Timer />
-                <CharactersLeftDisplayForHeader charsLeft={['Bender Rodriguez', 'Yautja', 'CatDog', 'Johnny Bravo']} />
-            </header>
-            <Tippy 
-                followCursor='initial' 
+            <Header />
+            <Tippy
+                followCursor='initial'
                 content={<CharChooserDropdown charsLeft={['Bender Rodriguez', 'Yautja', 'CatDog', 'Johnny Bravo']} />}
                 plugins={[followCursor]}
+                trigger='click'
+                theme='material'
+                interactive='true'
             >
-                <ImageMap
-                    src={universe_113}
-                    map={mapArea}
-                    onMapClick={onMapClick}
-                />
+                {/* Normally for component elements that are children of the Tippy
+                    cmpt, would have to forward ref.  Since <ImageMap> comes
+                    from a library and unable to do so, workaround is wrapping
+                    with the <span>  */}
+                <span tabIndex='0' className={imageMap}>
+                    <ImageMap
+                        src={universe_113}
+                        map={universe113MapArea}
+                        onMapClick={onMapClick}
+                        onClick={keepLooking}
+                    />
+                </span>
             </Tippy>
             <footer className={footer}>
                 <span className={footerText}>App by Matt Di Micelli</span>
             </footer>
+            <ToastContainer
+                position='top-center'
+                autoClose={3000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable={false}
+                pauseOnHover={false}
+                limit={1}
+                closeButton={false}
+            />
         </div>
     )
 }
