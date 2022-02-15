@@ -1,8 +1,13 @@
 import universe_113 from '../images/universe_113.jpg';
 import { ImageMap } from '@qiuz/react-image-map';
 import Timer from './Timer';
-import CharactersLeftDisplay from './CharactersLeftDisplay';
+import CharactersLeftDisplayForHeader from './CharactersLeftDisplayForHeader';
+import CharChooserDropdown from './CharChooserDropdown';
 import styles from './cmptStyles/gameplayStyles.module.css';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; 
+import { followCursor } from 'tippy.js';
+
 
 const {header, title, gameplayParentDiv, footer, footerText } = styles;
 
@@ -67,13 +72,19 @@ const Gameplay = () => {
                     <div>Hunt</div>
                 </h1>
                 <Timer />
-                <CharactersLeftDisplay charsLeft={['Bender Rodriguez', 'Yautja', 'CatDog', 'Johnny Bravo']} />
+                <CharactersLeftDisplayForHeader charsLeft={['Bender Rodriguez', 'Yautja', 'CatDog', 'Johnny Bravo']} />
             </header>
-            <ImageMap 
-                src={universe_113} 
-                map={mapArea} 
-                onMapClick={onMapClick}
-            />
+            <Tippy 
+                followCursor='initial' 
+                content={<CharChooserDropdown charsLeft={['Bender Rodriguez', 'Yautja', 'CatDog', 'Johnny Bravo']} />}
+                plugins={[followCursor]}
+            >
+                <ImageMap
+                    src={universe_113}
+                    map={mapArea}
+                    onMapClick={onMapClick}
+                />
+            </Tippy>
             <footer className={footer}>
                 <span className={footerText}>App by Matt Di Micelli</span>
             </footer>

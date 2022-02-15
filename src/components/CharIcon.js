@@ -4,9 +4,9 @@ import johnny_bravo from '../images/johnny2.webp';
 import predator from '../images/predator.png';
 import styles from './cmptStyles/gameplayStyles.module.css';
 
-const { characterIcon } = styles;
+const { characterIcon, forDropdown } = styles;
 
-const CharIcon = ({char}) => {
+const CharIcon = ({char, dropdown}) => {
     let imgSrc;
     // eslint-disable-next-line default-case
     switch (char) {
@@ -24,7 +24,11 @@ const CharIcon = ({char}) => {
             break;
     }
     return (
-        <img className={characterIcon} src={imgSrc} alt={char} />
+        <img 
+            className={dropdown ? forDropdown : characterIcon} 
+            src={imgSrc} 
+            alt={char} 
+        />
     )
 }
 export default CharIcon;
