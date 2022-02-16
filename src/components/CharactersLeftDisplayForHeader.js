@@ -6,25 +6,25 @@ import 'tippy.js/themes/material.css';
 import uniqid from 'uniqid';
 
 
-const {numberLeft, charIcons, charactersLeftDisplayTopDiv, tippyStyle} = styles;
+const {numberLeft, charIcons, charactersLeftDisplayTopDiv, tippyStyle } = styles;
 
 
-const CharactersLeftDisplayForHeader = ({charsLeft}) => {
+const CharactersLeftDisplayForHeader = ({chars, charsFound}) => {
     return (
         <div className={charactersLeftDisplayTopDiv}>
             <Tippy className={tippyStyle}
                 trigger='click' 
-                content={charsLeft.map(char => {
+                content={chars.map(char => {
                     return <CharIcon key={uniqid()} dropdown={true} char={char} />
                 })}
                 placement='bottom'
                 theme='material'
             >
-                <button className={numberLeft}>{charsLeft.length}</button>
+                <button className={numberLeft}>{chars.length - charsFound.length}</button>
             </Tippy>
 
             <section className={charIcons}>
-                {charsLeft.map(char => {
+                {chars.map(char => {
                     return <CharIcon key={uniqid()} dropdown={false} char={char} />
                 })}
             </section>

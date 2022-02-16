@@ -2,7 +2,8 @@ import uniqid from 'uniqid';
 import styles from './cmptStyles/gameplayStyles.module.css';
 
 const { charChooserDropdown, chooserItem } = styles;
-const CharChooserDropdown = ({charsLeft}) => {
+const CharChooserDropdown = ({chars, charsFound}) => {
+    const charsLeft = chars.filter(char => charsFound.includes(char) ? false : true);
     return (
         <ul className={charChooserDropdown}>
             {charsLeft.map(char => {

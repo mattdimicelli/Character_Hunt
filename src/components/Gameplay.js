@@ -1,20 +1,44 @@
-import universe_113 from '../images/universe_113.jpg';
+import { useState } from 'react';
 import { ImageMap } from '@qiuz/react-image-map';
-import CharChooserDropdown from './CharChooserDropdown';
-import styles from './cmptStyles/gameplayStyles.module.css';
-import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css'; 
-import { followCursor } from 'tippy.js';
-import 'tippy.js/themes/material.css';
-import Header from './Header';
-import { universe113MapArea, onUniverse113MapClick } from './universe113Map';
 import { ToastContainer, toast } from 'react-toastify';
+import { followCursor } from 'tippy.js';
+import Tippy from '@tippyjs/react';
+import universe_113 from '../images/universe_113.jpg';
+import the_loc_nar from '../images/the_loc_nar.jpg';
+import ultimate_space_battle from '../images/ultimate_space_battle.jpg';
+import { universe113MapArea, onUniverse113MapClick } from './universe113Map';
+import CharChooserDropdown from './CharChooserDropdown';
+import Header from './Header';
+import 'tippy.js/dist/tippy.css'; 
+import 'tippy.js/themes/material.css';
+import styles from './cmptStyles/gameplayStyles.module.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './cmptStyles/stylesToOverrideDefaultToastStyles.css';
+
 
 const { gameplayParentDiv, footer, footerText, imageMap } = styles;
 
 const Gameplay = ({ selectedMap }) => {
+    let [charsFound, setCharsFound] = useState([]);
+
+    let chars;
+    let mapImage;
+    // eslint-disable-next-line default-case
+    switch (selectedMap) {
+        case 'universe_113':
+            chars = ['Bender Rodriguez', 'Yautja', 'CatDog', 'Johnny Bravo'];
+            mapImage = universe_113;
+            break;
+        case 'the_loc_nar':
+            chars = ['Link', 'Rocko Rama', 'Worm', 'Batman'];
+            mapImage = the_loc_nar;
+            break;
+        case 'ultimate_space_battle':
+            chars = ['Bugs Bunny', 'Ruk', 'Martian', 'Thomas the Tank Engine'];
+            mapImage = ultimate_space_battle;
+            break;
+    }
+
 
     function keepLooking () {
         toast.error('Keep Looking!', {
@@ -25,7 +49,7 @@ const Gameplay = ({ selectedMap }) => {
     
     return (
         <div className={gameplayParentDiv}>
-            <Header />
+            <Header chars={chars} charsFound={charsFound} />
             <ToastContainer
                 position='top-center'
                 autoClose={3000}
@@ -41,7 +65,7 @@ const Gameplay = ({ selectedMap }) => {
             />
             <Tippy
                 followCursor='initial'
-                content={<CharChooserDropdown charsLeft={['Bender Rodriguez', 'Yautja', 'CatDog', 'Johnny Bravo']} />}
+                content={<CharChooserDropdown chars={chars} charsFound={charsFound}/>}
                 plugins={[followCursor]}
                 trigger='click'
                 theme='material'
@@ -53,7 +77,7 @@ const Gameplay = ({ selectedMap }) => {
                     with the <span>  */}
                 <span tabIndex='0' className={imageMap}>
                     <ImageMap
-                        src={universe_113}
+                        src={mapImage}
                         map={universe113MapArea}
                         onMapClick={onUniverse113MapClick}
                         onClick={keepLooking}

@@ -4,7 +4,7 @@ import CharactersLeftDisplayForHeader from './CharactersLeftDisplayForHeader';
 
 const { header, title } = styles;
 
-const Header = () => {
+const Header = ({chars, charsFound}) => {
     return (
         <header className={header}>
             <h1 className={title}>
@@ -12,7 +12,7 @@ const Header = () => {
                 <div>Hunt</div>
             </h1>
             <Timer />
-            <CharactersLeftDisplayForHeader charsLeft={['Bender Rodriguez', 'Yautja', 'CatDog', 'Johnny Bravo']} />
+            <CharactersLeftDisplayForHeader chars={chars} charsFound={charsFound} />
         </header>
     )
 }
