@@ -13,8 +13,8 @@ import ReactModal from 'react-modal';
 const { modalContent, overlay } = styles;
 
 function App() {
-  let [showMapSelector, setShowMapSelector] = useState(false);
-  let [showHighScores, setShowHighScores] = useState(false);
+  let [selectedMap, setSelectedMap] = useState(false);
+  let [gameOver, setGameOver] = useState(false);
 
   // Initialize firebase
   const app = useFirebaseApp();  //index.js contains FirebaseAppProvider
@@ -26,9 +26,9 @@ function App() {
     <FirestoreProvider sdk={firestore}>
       <div className="App">
         
-        <Gameplay />
+        <Gameplay selectedMap={selectedMap} />
 
-        {(showMapSelector || showHighScores) &&
+        { (!selectedMap || gameOver) &&
         <ReactModal
             isOpen={true}
             className={modalContent}
@@ -36,17 +36,17 @@ function App() {
             // due to how react-modal works, I found that having some code 
             // duplication in the two similiar OverlayElement files was the
             // best solution
-              showMapSelector ? 
-              OverlayElementForMapSelector : 
-              OverlayElementforHighScores
+              gameOver ? 
+              OverlayElementforHighScores :
+              OverlayElementForMapSelector  
             }
             // again, due to how react-modal works, styles that are
             // applied to the overlay "parent element" must be coded
             // here (cannot code into either of the OverlayElement files):
             overlayClassName={overlay}       
         >
-            {showMapSelector && <MapSelector />}
-            {showHighScores && <HighScores />}
+            {!selectedMap && <MapSelector />}
+            {gameOver && <HighScores />}
         </ReactModal>
         }
       </div>

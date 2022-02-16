@@ -7,35 +7,14 @@ import 'tippy.js/dist/tippy.css';
 import { followCursor } from 'tippy.js';
 import 'tippy.js/themes/material.css';
 import Header from './Header';
-import universe113MapArea from './universe113MapArea';
+import { universe113MapArea, onUniverse113MapClick } from './universe113Map';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './cmptStyles/stylesToOverrideDefaultToastStyles.css';
 
 const { gameplayParentDiv, footer, footerText, imageMap } = styles;
 
-const Gameplay = () => {
-    
-    function onMapClick(area, index) {
-        let char;
-        switch (index) {
-            case 0: 
-                char = 'Johnny Bravo';
-                break;
-            case 1: 
-                char = 'Cat Dog';
-                break;
-            case 2: 
-                char = 'Bender';
-                break;
-            case 3:
-                char = 'Predator';
-                break;
-            default:
-                char = 'None';
-        }
-        console.log(char);  
-    }
+const Gameplay = ({ selectedMap }) => {
 
     function keepLooking () {
         toast.error('Keep Looking!', {
@@ -47,6 +26,19 @@ const Gameplay = () => {
     return (
         <div className={gameplayParentDiv}>
             <Header />
+            <ToastContainer
+                position='top-center'
+                autoClose={3000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable={false}
+                pauseOnHover={false}
+                limit={1}
+                closeButton={false}
+            />
             <Tippy
                 followCursor='initial'
                 content={<CharChooserDropdown charsLeft={['Bender Rodriguez', 'Yautja', 'CatDog', 'Johnny Bravo']} />}
@@ -63,7 +55,7 @@ const Gameplay = () => {
                     <ImageMap
                         src={universe_113}
                         map={universe113MapArea}
-                        onMapClick={onMapClick}
+                        onMapClick={onUniverse113MapClick}
                         onClick={keepLooking}
                     />
                 </span>
@@ -71,19 +63,6 @@ const Gameplay = () => {
             <footer className={footer}>
                 <span className={footerText}>App by Matt Di Micelli</span>
             </footer>
-            <ToastContainer
-                position='top-center'
-                autoClose={3000}
-                hideProgressBar
-                newestOnTop={false}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss={false}
-                draggable={false}
-                pauseOnHover={false}
-                limit={1}
-                closeButton={false}
-            />
         </div>
     )
 }

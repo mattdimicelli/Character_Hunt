@@ -29,4 +29,25 @@ const universe113MapArea = [
     }
 ];
 
-export default universe113MapArea;
+function onUniverse113MapClick(area, index) {
+    let char;
+    switch (index) {
+        case 0: 
+            char = 'Johnny Bravo';
+            break;
+        case 1: 
+            char = 'Cat Dog';
+            break;
+        case 2: 
+            char = 'Bender';
+            break;
+        case 3:
+            char = 'Predator';
+            break;
+        default:
+            char = 'None';
+    }
+    console.log(char);  
+}
+
+export { universe113MapArea, onUniverse113MapClick} ;
