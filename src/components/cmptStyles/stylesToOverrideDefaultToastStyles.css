@@ -1,14 +1,39 @@
+:root {
+    --toastify-toast-min-height: 0;
+}
 .Toastify__toast-container {
     width: auto;
     text-align: center;
 }
 .Toastify__toast-container--top-center {
-    left: calc(50vw - 75px);
+    /* used to define the position of the ToastContainer */
+    left: calc(50vw - 50px);
     top: 80px;
 }
-.Toastify__toast-theme--colored.Toastify__toast--error {
+.Toastify__toast-theme--colored.Toastify__toast--error,
+.Toastify__toast-theme--colored.Toastify__toast--success {
+    /* handles things like bg and text color based on theme.  also for some 
+    reason has some other properties that can be overriden */
     color: white;
+    padding: 0;
+    border-radius: 0.5rem;
+}
+.Toastify__toast-theme--colored.Toastify__toast--error {
     background-color: red;
+}
+.Toastify__toast-theme--colored.Toastify__toast--success {
+    background-color: green;
+}
+.Toastify__toast-body {
+    /* this class is for the toast itself, as opposed to the container */
+    padding: 0.5rem 1rem;
+}
+
+@media (min-width: 481px) {
+    .Toastify__toast-container--top-center {
+        left: 50vw;
+        top: 80px;
+    }
 }
 
 @media (min-width: 600px) {
