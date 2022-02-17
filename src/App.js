@@ -10,6 +10,7 @@ import OverlayElementForMapSelector from './components/OverlayElementForMapSelec
 import OverlayElementforHighScores from './components/OverlayElementForHighScores';
 import ReactModal from 'react-modal';
 import universe_113 from './images/universe_113.jpg';
+import ultimate_space_battle_preview from './images/ultimate_space_battle_preview.jpg';
 
 
 const { modalContent, overlay } = styles;
@@ -18,7 +19,11 @@ function App() {
   let [selectedMap, setSelectedMap] = useState(false);
   let [gameOver, setGameOver] = useState(false);
   let [timeElapsed, setTimeElapsed] = useState(0);
-  let [currentMapPreview, setCurrentMapPreview] = useState(2);
+  let [currentMapPreview, setCurrentMapPreview] = useState({
+    imgPath: ultimate_space_battle_preview,
+    imgAlt: 'Ultimate Space Battle by Egor Klyuchnyk',
+    mapName: 'Ultimate Space Battle'
+});
 
   // Initialize firebase
   const app = useFirebaseApp();  //index.js contains FirebaseAppProvider

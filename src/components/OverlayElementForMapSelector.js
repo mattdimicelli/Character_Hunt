@@ -1,38 +1,65 @@
 /* eslint-disable default-case */
 import { ImArrowRight, ImArrowLeft } from 'react-icons/im';
 import styles from './cmptStyles/overlayStyles.module.css';
+import the_loc_nar_preview from '../images/the_loc_nar_preview.jpg';
+import ultimate_space_battle_preview from '../images/ultimate_space_battle_preview.jpg';
+import universe_preview from '../images/universe_113_preview.jpg';
+
 
 const { whole, hunt, mapChooser, arrowButton, appTitle, mapChooserText } = styles;
 
 const OverlayElementForMapSelector = (props, contentElement, currentMapPreview, setCurrentMapPreview) => {
-    function changeMapPreview(number) {
-        let current;
-        switch (currentMapPreview) {
-            case 'ultimate_space_battle':
-                current = 2;
+    function previousMapPreview() {
+        switch (currentMapPreview.imgPath) {
+            case ultimate_space_battle_preview:
+                setCurrentMapPreview({ 
+                    imgPath: the_loc_nar_preview,
+                    imgAlt: 'The Loc Nar by Egor Klyuchnyk',
+                    mapName: 'The Loc Nar'
+                });
                 break;
-            case 'the_loc_nar':
-                current = 1;
+            case the_loc_nar_preview:
+                setCurrentMapPreview({ 
+                    imgPath: universe_preview,
+                    imgAlt: 'Universe 113 by Egor Klyuchnyk',
+                    mapName: 'Universe 113'
+                });
                 break;
-            case 'universe_113':
-                current = 3;
-                break;
-        }
-        const newMapPreviewNumber = current + number;
-        let newMapPreviewName;
-        switch (newMapPreviewNumber) {
-            case 2:
-                newMapPreviewName = 'ultimate_space_battle';
-                break;
-            case 1:
-                newMapPreviewName = '_loc_nar';
-                break;
-            case 3:
-                newMapPreviewName = 'universe_113';
+            case universe_preview:
+                setCurrentMapPreview({
+                    imgPath: ultimate_space_battle_preview,
+                    imgAlt: 'Ultimate Space Battle by Egor Klyuchnyk',
+                    mapName: 'Ultimate Space Battle'
+                });
                 break;
         }
-        setCurrentMapPreview(newMapPreviewName);
     }
+    function nextMapPreview() {
+        switch (currentMapPreview.imgPath) {
+            case ultimate_space_battle_preview:
+                setCurrentMapPreview({ 
+                    imgPath: universe_preview,
+                    imgAlt: 'Universe 113 by Egor Klyuchnyk',
+                    mapName: 'Universe 113'
+                });
+                break;
+            case the_loc_nar_preview:
+                setCurrentMapPreview({
+                    imgPath: ultimate_space_battle_preview,
+                    imgAlt: 'Ultimate Space Battle by Egor Klyuchnyk',
+                    mapName: 'Ultimate Space Battle'
+                });
+                break;
+            case universe_preview:
+                setCurrentMapPreview({ 
+                    imgPath: the_loc_nar_preview,
+                    imgAlt: 'The Loc Nar by Egor Klyuchnyk',
+                    mapName: 'The Loc Nar',
+                });
+                break;
+        }
+    }
+
 
     return (
         <div {...props}>
@@ -40,11 +67,11 @@ const OverlayElementForMapSelector = (props, contentElement, currentMapPreview, 
             <div className={whole}>
                 <h1 className={appTitle}>Character <span className={hunt}>Hunt</span></h1>
                 <div className={mapChooser}>
-                    <button className={arrowButton} onClick={() => changeMapPreview(-1)}>
+                    <button className={arrowButton} onClick={previousMapPreview}>
                         <ImArrowLeft />
                     </button>
                     <span>Choose Map</span>
-                    <button className={arrowButton} onClick={() => changeMapPreview(1)}>
+                    <button className={arrowButton} onClick={nextMapPreview}>
                         <ImArrowRight />
                     </button>
                 </div>
