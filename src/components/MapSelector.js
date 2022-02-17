@@ -1,10 +1,10 @@
 import MapDescription from './MapDescription';
-import universe_preview from '../images/universe_113_screenshot.jpg';
+import universe_preview from '../images/universe_113_preview.jpg';
 import styles from './cmptStyles/mapSelectorStyles.module.css';
 
 const { modalContentTopDiv, preview } = styles;
 
-const MapSelector = () => {
+const MapSelector = ({currentMapPreview}) => {
     return (
         <div className={modalContentTopDiv}>
             <img

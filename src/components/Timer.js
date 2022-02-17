@@ -1,9 +1,12 @@
 import styles from './cmptStyles/gameplayStyles.module.css';
+import toHHMMSS from './toHHMMSS';
 
 const {timer} = styles;
-const Timer = props => {
+const Timer = ({timeElapsed}) => {
+    
+
     return (
-        <div className={timer}>00:16:12</div>
+        <div className={timer}>{toHHMMSS(timeElapsed)}</div>
     )
 }
 

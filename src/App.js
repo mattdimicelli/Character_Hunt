@@ -9,12 +9,16 @@ import styles from './components/cmptStyles/mapSelectorStyles.module.css';
 import OverlayElementForMapSelector from './components/OverlayElementForMapSelector';
 import OverlayElementforHighScores from './components/OverlayElementForHighScores';
 import ReactModal from 'react-modal';
+import universe_113 from './images/universe_113.jpg';
+
 
 const { modalContent, overlay } = styles;
 
 function App() {
   let [selectedMap, setSelectedMap] = useState(false);
   let [gameOver, setGameOver] = useState(false);
+  let [timeElapsed, setTimeElapsed] = useState(0);
+  let [currentMapPreview, setCurrentMapPreview] = useState(2);
 
   // Initialize firebase
   const app = useFirebaseApp();  //index.js contains FirebaseAppProvider
@@ -25,8 +29,12 @@ function App() {
   return (
     <FirestoreProvider sdk={firestore}>
       <div className="App">
-        
-        <Gameplay selectedMap={selectedMap} />
+
+        {selectedMap ?
+          <Gameplay selectedMap={selectedMap} timeElapsed={timeElapsed} />
+        :
+          <img src={universe_113} alt='universe_113 drawing by Egor Klyuchnyk' />
+        }
 
         { (!selectedMap || gameOver) &&
         <ReactModal
@@ -38,15 +46,15 @@ function App() {
             // best solution
               gameOver ? 
               OverlayElementforHighScores :
-              OverlayElementForMapSelector  
+              (props, contentElement) => OverlayElementForMapSelector(props, contentElement, currentMapPreview, setCurrentMapPreview)  
             }
             // again, due to how react-modal works, styles that are
             // applied to the overlay "parent element" must be coded
             // here (cannot code into either of the OverlayElement files):
             overlayClassName={overlay}       
         >
-            {!selectedMap && <MapSelector />}
-            {gameOver && <HighScores />}
+            {!selectedMap && <MapSelector currentMapPreview={currentMapPreview} />}
+            {gameOver && <HighScores timeElapsed={timeElapsed} />}
         </ReactModal>
         }
       </div>

@@ -3,11 +3,12 @@ import { useFirestore, useFirestoreCollectionData  } from 'reactfire';
 import HighScore from './HighScore';
 import { uniqid } from 'uniqid';
 import styles from './cmptStyles/highScoreStyles.module.css';
+import toHHMMSS from './toHHMMSS';
 
 const { rightSide, leftSide, modalContentTopDiv, scoreList, initialsInput,
     initialsForm, button, caption, time } = styles;
     
-const HighScores = () => {
+const HighScores = ({timeElapsed}) => {
 
     // set up query
     const firestore = useFirestore();
@@ -46,7 +47,7 @@ const HighScores = () => {
             <section className={rightSide}>
                 <figure>
                     <figcaption className={caption}>Time</figcaption>
-                    <span className={time}>00:19:11</span>
+                    <span className={time}>{toHHMMSS(timeElapsed)}</span>
                 </figure>
                 <form className={initialsForm}>
                     <label for='initials'>Enter your initials:</label>
