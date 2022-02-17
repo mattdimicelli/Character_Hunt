@@ -134,6 +134,9 @@
         padding-left: 0.75rem;
         padding-right: 0.75rem;
     }
+    .preview {
+        width: 60%;
+    }
 
     .startButton {
         margin-bottom: 0.5rem;
