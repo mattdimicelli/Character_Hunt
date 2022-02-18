@@ -56,12 +56,7 @@ const CharIcon = ({char, dropdown}) => {
             break;
     }
 
-    return (
-        <img 
-            className={dropdown ? forDropdown : characterIcon} 
-            src={imgSrc} 
-            alt={char} 
-        />
-    )
+    return <img className={dropdown ? forDropdown : characterIcon} src={imgSrc} alt={char} />
+    
 }
 export default CharIcon;
