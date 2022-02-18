@@ -10,26 +10,31 @@ const {numberLeft, charIcons, charactersLeftDisplayTopDiv, tippyStyle } = styles
 
 
 const CharactersLeftDisplayForHeader = ({chars, charsFound}) => {
-    const charIconListForDropdown = chars.map(char => {
-        return <CharIcon key={uniqid()} dropdown={true} char={char} />
+
+    const charIconListForDropdownForSmallScreens = chars.filter(char => {
+        return !charsFound.includes(char)}).map(char => {
+            return <CharIcon key={uniqid()} dropdown={true} char={char} />
     });
-    const charIconListToDisplayOnHeader = chars.map(char => {
-        return <CharIcon key={uniqid()} dropdown={false} char={char} />
+
+    const charIconListToDisplayOnHeaderForLargerScreens = chars.filter(char => {
+        return !charsFound.includes(char)}).map(char => {
+            return <CharIcon key={uniqid()} dropdown={false} char={char} />
     });
-    const numberOfCharsLeft = chars.length - charsFound.length;
+    
+    const numberOfCharsLeftForSmallScreens = chars.length - charsFound.length;
 
     return (
         <div className={charactersLeftDisplayTopDiv}>
             <Tippy className={tippyStyle}
                 trigger='click' 
-                content={charIconListForDropdown}
+                content={charIconListForDropdownForSmallScreens}
                 placement='bottom'
                 theme='material'
             >
-                <button className={numberLeft}>{numberOfCharsLeft}</button>
+                <button className={numberLeft}>{numberOfCharsLeftForSmallScreens}</button>
             </Tippy>
 
-            <section className={charIcons}>{charIconListToDisplayOnHeader}</section>
+            <section className={charIcons}>{charIconListToDisplayOnHeaderForLargerScreens}</section>
         </div>
     )
 }

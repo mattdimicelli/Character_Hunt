@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 const ultimateSpaceBattleMapArea = [
     {
         // Bugs Bunny
@@ -7,20 +8,21 @@ const ultimateSpaceBattleMapArea = [
         top: "84.29752066115702%"
     },
     {
-
+        // Martian
         width: "2.18978102189781%",
         height: "2.272727272727273%",
         left: "83.13138641580179%",
         top: "58.47107438016529%"
     },
     {
+        // Thomas the Tank Engine
         width: "1.897810218978102%",
         height: "3.0991735537190084%",
         left: "34.51824772967039%",
         top: "42.768595041322314%"
     },
     {
-        
+        // Ryuk
         width: "3.795620437956204%",
         height: "4.75206611570248%",
         left: "1.8175178026630983%",
@@ -28,25 +30,21 @@ const ultimateSpaceBattleMapArea = [
     }
 ];
 
-function onUltimateSpaceBattleMapClick(area, index) {
-    let char;
+function onUltimateSpaceBattleMapClick(setTargetCharClicked, area, index) {
     switch (index) {
         case 0: 
-            char = 'Bugs Bunny';
+            setTargetCharClicked('Bugs Bunny');
             break;
         case 1: 
-            char = '1';
+            setTargetCharClicked('Martian');
             break;
         case 2: 
-            char = '2';
+            setTargetCharClicked('Thomas the Tank Engine');
             break;
         case 3:
-            char = '3';
+            setTargetCharClicked('Ryuk');
             break;
-        default:
-            char = 'None';
     }
-    console.log(char);  
 }
 
 export { onUltimateSpaceBattleMapClick, ultimateSpaceBattleMapArea };

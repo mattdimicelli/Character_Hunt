@@ -1,17 +1,9 @@
 import { ImageMap } from '@qiuz/react-image-map';
-import { toast } from 'react-toastify';
 import styles from './cmptStyles/gameplayStyles.module.css';
 
-const Trigger = ({img: mapImage, handler: mapClickHandler, area: mapArea, name: mapName}) => {
+const Trigger = ({img: mapImage, handler: mapClickHandler, area: mapArea, name: mapName, setTargetCharClicked }) => {
 
     const {imageMap, ultimateMap} = styles;
-
-    function keepLooking () {
-        toast.error('Keep Looking!', {
-            icon: false,
-            theme: 'colored',
-        });
-    }
 
     /* Normally for component elements that are children of the Tippy cmpt, would have to forward 
     ref.  Since <ImageMap> comes from a library and unable to do so, workaround is wrapping with the
@@ -22,8 +14,8 @@ const Trigger = ({img: mapImage, handler: mapClickHandler, area: mapArea, name: 
             <ImageMap
                 src={mapImage}
                 map={mapArea}
-                onMapClick={mapClickHandler}
-                onClick={keepLooking}
+                onMapClick={(area, index) => mapClickHandler(setTargetCharClicked, area, index)}
+                onClick={() => setTargetCharClicked(false)}
                 // the Ultimate Space Battle map is much wider than the 
                 // other maps.  The 'ultimateMap' class is applied only 
                 // to this map in order to have it appear "zoomed-in" enough

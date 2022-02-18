@@ -1,3 +1,5 @@
+/* eslint-disable default-case */
+
 const theLocNarMapArea = [
     {
         //Link
@@ -29,25 +31,21 @@ const theLocNarMapArea = [
     }
 ];
 
-function onTheLocNarMapClick(area, index) {
-    let char;
+function onTheLocNarMapClick(setTargetCharClicked, area, index) {
     switch (index) {
         case 0: 
-            char = 'Link';
+            setTargetCharClicked('Link');
             break;
         case 1: 
-            char = 'Rocko Rama';
+            setTargetCharClicked('Rocko Rama');
             break;
         case 2: 
-            char = 'Batman';
+            setTargetCharClicked('Batman');
             break;
         case 3:
-            char = 'Worm';
+            setTargetCharClicked('Worm');
             break;
-        default:
-            char = 'None';
     }
-    console.log(char);  
 }
 
 export { theLocNarMapArea, onTheLocNarMapClick };

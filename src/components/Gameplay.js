@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
 import { followCursor } from 'tippy.js';
 import Tippy from '@tippyjs/react';
 import universe_113 from '../images/universe_113.jpg';
@@ -9,16 +8,19 @@ import { universe113MapArea, onUniverse113MapClick } from './universe113Map';
 import { onTheLocNarMapClick, theLocNarMapArea } from './theLocNarMap';
 import {onUltimateSpaceBattleMapClick, ultimateSpaceBattleMapArea} from './ultimateSpaceBattleMap';
 import CharChooserDropdown from './CharChooserDropdown';
+import MyToastContainer from './MyToastContainer';
 import Trigger from './Trigger';
 import Header from './Header';
+import Footer from './Footer';
 import 'tippy.js/dist/tippy.css'; 
 import 'tippy.js/themes/material.css';
 import styles from './cmptStyles/gameplayStyles.module.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './cmptStyles/stylesToOverrideDefaultToastStyles.css';
+import { ImageMap } from '@qiuz/react-image-map';
 
 
-const { gameplayParentDiv, footer, footerText, ultimateFooter } = styles;
+const { gameplayParentDiv, ultimateMap, imageMap } = styles;
 
 const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
 
@@ -31,6 +33,8 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
 
     const {mapName, characters: chars} = map;
     let [charsFound, setCharsFound] = useState([]);
+    let [targetCharClicked, setTargetCharClicked] = useState(false);
+    let [tippyDropdownInstance, setTippyDropdownInstance] = useState(null);
 
     let mapImage;
     let mapArea;
@@ -57,40 +61,50 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
     
     return (
         <div className={gameplayParentDiv}>
+
             <Header 
                 chars={chars} 
                 charsFound={charsFound} 
                 timeElapsed={timeElapsed}
                 mapName={mapName}
             />
-            <ToastContainer
-                position='top-center'
-                autoClose={3000}
-                hideProgressBar
-                newestOnTop={false}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss={false}
-                draggable={false}
-                pauseOnHover={false}
-                limit={1}
-                closeButton={false}
-            />
+
+            <MyToastContainer />
+            
             <Tippy
                 followCursor='initial'
-                content={<CharChooserDropdown chars={chars} charsFound={charsFound}/>}
+                content={tippyDropdownInstance ? <CharChooserDropdown 
+                            chars={chars} 
+                            charsFound={charsFound} 
+                            targetCharClicked={targetCharClicked}
+                            setCharsFound={setCharsFound}
+                            hide={tippyDropdownInstance.hide}
+                        /> : ''}
                 plugins={[followCursor]}
                 trigger='click'
                 theme='material'
                 interactive='true'
+                onCreate={setTippyDropdownInstance}
             >
-                <Trigger img={mapImage} area={mapArea} handler={mapClickHandler} name={mapName}/>
+                <span tabIndex='0' className={imageMap}>
+                    <ImageMap
+                    src={mapImage}
+                    map={mapArea}
+                    onMapClick={(area, index) => mapClickHandler(setTargetCharClicked, area, index)}
+                    onClick={() => setTargetCharClicked(false)}
+                    // the Ultimate Space Battle map is much wider than the 
+                    // other maps.  The 'ultimateMap' class is applied only 
+                    // to this map in order to have it appear "zoomed-in" enough
+                    // for the player to be able to identify and click on the 
+                    // characters
+                    className={mapName === 'Ultimate Space Battle' ? ultimateMap : ''}
+                    />
+            </span>
+                {/* <Trigger img={mapImage} area={mapArea} handler={mapClickHandler} setTargetCharClicked={setTargetCharClicked} name={mapName}/> */}
             </Tippy>
-            <footer className={mapName === 'Ultimate Space Battle' ? ultimateFooter : footer}>
-                <span className={footerText}>App by Matt Di Micelli</span>
-            </footer>
+
+            <Footer mapName={mapName} />
         </div>
     )
 }
-
 export default Gameplay;

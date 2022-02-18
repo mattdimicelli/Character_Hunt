@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 const universe113MapArea = [
     {
         // Jonny Bravo
@@ -29,25 +30,21 @@ const universe113MapArea = [
     }
 ];
 
-function onUniverse113MapClick(area, index) {
-    let char;
+function onUniverse113MapClick(setTargetCharClicked, area, index) {
     switch (index) {
         case 0: 
-            char = 'Johnny Bravo';
+            setTargetCharClicked('Johnny Bravo');
             break;
         case 1: 
-            char = 'Cat Dog';
+            setTargetCharClicked('Cat Dog');
             break;
         case 2: 
-            char = 'Bender';
+            setTargetCharClicked('Bender');
             break;
         case 3:
-            char = 'Predator';
+            setTargetCharClicked('Predator');
             break;
-        default:
-            char = 'None';
     }
-    console.log(char);  
 }
 
 export { universe113MapArea, onUniverse113MapClick} ;
