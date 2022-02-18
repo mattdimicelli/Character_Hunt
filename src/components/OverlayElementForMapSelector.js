@@ -6,56 +6,53 @@ import ultimate_space_battle_preview from '../images/ultimate_space_battle_previ
 import universe_preview from '../images/universe_113_preview.jpg';
 
 
-const { whole, hunt, mapChooser, arrowButton, appTitle, mapChooserText } = styles;
+const { whole, hunt, mapChooser, arrowButton, appTitle } = styles;
 
-const OverlayElementForMapSelector = (props, contentElement, currentMapPreview, setCurrentMapPreview) => {
+const theLocNar = {
+    previewImgPath: the_loc_nar_preview,
+    imgAlt: 'The Loc Nar by Egor Klyuchnyk',
+    mapName: 'The Loc Nar',
+    characters: ['Link', 'Rocko Rama', 'Worm', 'Batman',],
+};
+const ultimateSpaceBattle = {
+    previewImgPath: ultimate_space_battle_preview,
+    imgAlt: 'Ultimate Space Battle by Egor Klyuchnyk',
+    mapName: 'Ultimate Space Battle',
+    characters: ['Bugs Bunny', 'Martian', 'Ryuk', 'Thomas the Tank Engine'],
+};
+const universe113 = {
+    previewImgPath: universe_preview,
+    imgAlt: 'Universe 113 by Egor Klyuchnyk',
+    mapName: 'Universe 113',
+    characters: ['Johnny Bravo', 'Bender Rodriguez', 'CatDog', 'Yautja'],
+}
+
+const OverlayElementForMapSelector 
+    = (props, contentElement, currentMapPreview, setCurrentMapPreview) => {
+
     function previousMapPreview() {
-        switch (currentMapPreview.imgPath) {
+        switch (currentMapPreview.previewImgPath) {
             case ultimate_space_battle_preview:
-                setCurrentMapPreview({ 
-                    imgPath: the_loc_nar_preview,
-                    imgAlt: 'The Loc Nar by Egor Klyuchnyk',
-                    mapName: 'The Loc Nar'
-                });
+                setCurrentMapPreview(theLocNar);
                 break;
             case the_loc_nar_preview:
-                setCurrentMapPreview({ 
-                    imgPath: universe_preview,
-                    imgAlt: 'Universe 113 by Egor Klyuchnyk',
-                    mapName: 'Universe 113'
-                });
+                setCurrentMapPreview(universe113);
                 break;
             case universe_preview:
-                setCurrentMapPreview({
-                    imgPath: ultimate_space_battle_preview,
-                    imgAlt: 'Ultimate Space Battle by Egor Klyuchnyk',
-                    mapName: 'Ultimate Space Battle'
-                });
+                setCurrentMapPreview(ultimateSpaceBattle);
                 break;
         }
     }
     function nextMapPreview() {
-        switch (currentMapPreview.imgPath) {
+        switch (currentMapPreview.previewImgPath) {
             case ultimate_space_battle_preview:
-                setCurrentMapPreview({ 
-                    imgPath: universe_preview,
-                    imgAlt: 'Universe 113 by Egor Klyuchnyk',
-                    mapName: 'Universe 113'
-                });
+                setCurrentMapPreview(universe113);
                 break;
             case the_loc_nar_preview:
-                setCurrentMapPreview({
-                    imgPath: ultimate_space_battle_preview,
-                    imgAlt: 'Ultimate Space Battle by Egor Klyuchnyk',
-                    mapName: 'Ultimate Space Battle'
-                });
+                setCurrentMapPreview(ultimateSpaceBattle);
                 break;
             case universe_preview:
-                setCurrentMapPreview({ 
-                    imgPath: the_loc_nar_preview,
-                    imgAlt: 'The Loc Nar by Egor Klyuchnyk',
-                    mapName: 'The Loc Nar',
-                });
+                setCurrentMapPreview(theLocNar);
                 break;
         }
     }
@@ -80,4 +77,5 @@ const OverlayElementForMapSelector = (props, contentElement, currentMapPreview, 
     )
 };
 
+export { ultimateSpaceBattle };
 export default OverlayElementForMapSelector;

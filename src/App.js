@@ -11,19 +11,22 @@ import OverlayElementforHighScores from './components/OverlayElementForHighScore
 import ReactModal from 'react-modal';
 import universe_113 from './images/universe_113.jpg';
 import ultimate_space_battle_preview from './images/ultimate_space_battle_preview.jpg';
+import { ultimateSpaceBattle } from './components/OverlayElementForMapSelector';
 
 
 const { modalContent, overlay } = styles;
 
 function App() {
-  let [selectedMap, setSelectedMap] = useState(false);
+  let [map, setMap] = useState(false);
   let [gameOver, setGameOver] = useState(false);
   let [timeElapsed, setTimeElapsed] = useState(0);
-  let [currentMapPreview, setCurrentMapPreview] = useState({
-    imgPath: ultimate_space_battle_preview,
-    imgAlt: 'Ultimate Space Battle by Egor Klyuchnyk',
-    mapName: 'Ultimate Space Battle'
-});
+  // let [currentMapPreview, setCurrentMapPreview] = useState({
+  //   previewImgPath: ultimate_space_battle_preview,
+  //   imgAlt: 'Ultimate Space Battle by Egor Klyuchnyk',
+  //   mapName: 'Ultimate Space Battle',
+  //   characters: ['Bugs Bunny', 'Martian', 'Ryuk', 'Thomas the Tank Engine'],
+  // });
+  let [currentMapPreview, setCurrentMapPreview] = useState(ultimateSpaceBattle);
 
   // Initialize firebase
   const app = useFirebaseApp();  //index.js contains FirebaseAppProvider
@@ -35,13 +38,13 @@ function App() {
     <FirestoreProvider sdk={firestore}>
       <div className="App">
 
-        {selectedMap ?
-          <Gameplay selectedMap={selectedMap} timeElapsed={timeElapsed} />
+        {map ?
+          <Gameplay map={map} timeElapsed={timeElapsed} setTimeElapsed={setTimeElapsed} />
         :
           <img src={universe_113} alt='universe_113 drawing by Egor Klyuchnyk' />
         }
 
-        { (!selectedMap || gameOver) &&
+        { (!map || gameOver) &&
         <ReactModal
             isOpen={true}
             className={modalContent}
@@ -51,14 +54,24 @@ function App() {
             // best solution
               gameOver ? 
               OverlayElementforHighScores :
-              (props, contentElement) => OverlayElementForMapSelector(props, contentElement, currentMapPreview, setCurrentMapPreview)  
+              (props, contentElement) => {
+                return OverlayElementForMapSelector(
+                  props, 
+                  contentElement, 
+                  currentMapPreview, 
+                  setCurrentMapPreview
+                )
+              }   
             }
             // again, due to how react-modal works, styles that are
             // applied to the overlay "parent element" must be coded
             // here (cannot code into either of the OverlayElement files):
             overlayClassName={overlay}       
         >
-            {!selectedMap && <MapSelector currentMapPreview={currentMapPreview} />}
+            {!map && <MapSelector 
+                        currentMapPreview={currentMapPreview} 
+                        setMap={setMap} 
+                      />}
             {gameOver && <HighScores timeElapsed={timeElapsed} />}
         </ReactModal>
         }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ImageMap } from '@qiuz/react-image-map';
 import { ToastContainer, toast } from 'react-toastify';
 import { followCursor } from 'tippy.js';
@@ -20,29 +20,33 @@ import './cmptStyles/stylesToOverrideDefaultToastStyles.css';
 
 const { gameplayParentDiv, footer, footerText, imageMap } = styles;
 
-const Gameplay = ({ selectedMap, timeElapsed }) => {
+const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
+
+    useEffect(() => {
+        const timerInterval = setInterval(() => {
+                setTimeElapsed(timeElapsed => timeElapsed + 1);
+            }, 1000);    
+    }, [timeElapsed]);
+
+    const {mapName, characters: chars} = map;
     let [charsFound, setCharsFound] = useState([]);
 
-    let chars;
     let mapImage;
     let mapArea;
     let mapClickHandler;
     // eslint-disable-next-line default-case
-    switch (selectedMap) {
-        case 'universe_113':
-            chars = ['Bender Rodriguez', 'Yautja', 'CatDog', 'Johnny Bravo'];
+    switch (mapName) {
+        case 'Universe 113':
             mapImage = universe_113;
             mapArea = universe113MapArea;
             mapClickHandler = onUniverse113MapClick;
             break;
-        case 'the_loc_nar':
-            chars = ['Link', 'Rocko Rama', 'Worm', 'Batman'];
+        case 'The Loc Nar':
             mapImage = the_loc_nar;
             mapArea = theLocNarMapArea;
             mapClickHandler = onTheLocNarMapClick;
             break;
-        case 'ultimate_space_battle':
-            chars = ['Bugs Bunny', 'Ruk', 'Martian', 'Thomas the Tank Engine'];
+        case 'Ultimate Space Battle':
             mapImage = ultimate_space_battle;
             mapArea = ultimateSpaceBattleMapArea;
             mapClickHandler = onUltimateSpaceBattleMapClick;

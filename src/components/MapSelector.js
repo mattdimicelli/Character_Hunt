@@ -4,43 +4,21 @@ import styles from './cmptStyles/mapSelectorStyles.module.css';
 
 const { modalContentTopDiv, preview } = styles;
 
-const MapSelector = ({currentMapPreview}) => {
-    console.log(currentMapPreview.mapName)
-    let characters;
-    switch (currentMapPreview.mapName) {
-        case 'Universe 113':
-            characters = [
-                'Johnny Bravo',
-                'Bender Rodriguez',
-                'CatDog',
-                'Yautja'
-            ];
-            break;
-        case 'Ultimate Space Battle':
-            characters = [
-                'Bugs Bunny',
-                'Martian',
-                'Ryuk',
-                'Thomas the Tank Engine',
-            ];
-            break;
-        case 'The Loc Nar':
-            characters = [
-                'Link',
-                'Rocko Rama',
-                'Worm',
-                'Batman',
-            ];
-            break;
-    }
+const MapSelector = ({currentMapPreview, setMap}) => {
+    const {characters, mapName, previewImgPath, imgAlt} = currentMapPreview;
     return (
         <div className={modalContentTopDiv}>
             <img
                 className={preview}
-                src={currentMapPreview.imgPath}
-                alt={currentMapPreview.imgAlt}
+                src={previewImgPath}
+                alt={imgAlt}
             />
-            <MapDescription characters={characters} mapName={currentMapPreview.mapName}/>
+            <MapDescription 
+                characters={characters} 
+                mapName={mapName} 
+                setMap={setMap}
+                currentMapPreview={currentMapPreview}
+            />
         </div>
     )
 }

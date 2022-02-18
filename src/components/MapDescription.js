@@ -4,7 +4,12 @@ import styles from './cmptStyles/mapSelectorStyles.module.css';
 
 const { mapDescription, mapTitle, egor, startButton } = styles;
 
-const MapDescription = ({characters, mapName}) => {
+const MapDescription = ({
+    characters, 
+    mapName, 
+    setMap, 
+    currentMapPreview: chosenMap
+}) => {
     return (
         <section className={mapDescription}>
             <div>
@@ -14,7 +19,13 @@ const MapDescription = ({characters, mapName}) => {
             {characters.map(character => {
                 return <CharDescription key={uniqid()} character={character} />    
             })}
-            <button type='button' className={startButton}>Start</button>
+            <button 
+                type='button' 
+                className={startButton}
+                onClick={() => setMap(chosenMap)}
+            >
+                Start
+            </button>
         </section>
     )
 }
