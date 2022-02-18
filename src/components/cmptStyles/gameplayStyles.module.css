@@ -48,7 +48,7 @@
     padding: 0.25rem 0.5rem;
     align-items: center;
 }
-.imageMap, .ultimateMap {
+.imageMap {
     /* the numbers following the url are x & y coords for cursor hotspot */
     cursor: url('../../images/cursor32.png') 16 16, crosshair;
 }
@@ -109,16 +109,14 @@
         justify-content: space-around;
     }
     .ultimateFooter {
-        width: 200vw;
+        width: 6688px;
     }
     .footerText {
         padding: 0.3rem 0.4rem;
     }
-    .ultimateMap {
-        width: 200%;
-        position: relative;
-        top: 80px;
-        left: -8px;
+    .ultimateImageMap {
+        /* react-image-map applies an unnecessary class that overrides this style unless if important */
+        width: 6688px !important;
     }
     .ultimateHeader {
         position: fixed;

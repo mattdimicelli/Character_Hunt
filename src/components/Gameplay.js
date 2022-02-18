@@ -20,7 +20,7 @@ import './cmptStyles/stylesToOverrideDefaultToastStyles.css';
 import { ImageMap } from '@qiuz/react-image-map';
 
 
-const { gameplayParentDiv, ultimateMap, imageMap } = styles;
+const { gameplayParentDiv, imageMap, ultimateImageMap } = styles;
 
 const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
 
@@ -92,12 +92,12 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
                     map={mapArea}
                     onMapClick={(area, index) => mapClickHandler(setTargetCharClicked, area, index)}
                     onClick={() => setTargetCharClicked(false)}
+                    className={mapName === 'Ultimate Space Battle' ? ultimateImageMap : ''}
                     // the Ultimate Space Battle map is much wider than the 
-                    // other maps.  The 'ultimateMap' class is applied only 
+                    // other maps.  The 'ultimateImageMap' class is applied only 
                     // to this map in order to have it appear "zoomed-in" enough
                     // for the player to be able to identify and click on the 
                     // characters
-                    className={mapName === 'Ultimate Space Battle' ? ultimateMap : ''}
                     />
             </span>
                 {/* <Trigger img={mapImage} area={mapArea} handler={mapClickHandler} setTargetCharClicked={setTargetCharClicked} name={mapName}/> */}
