@@ -4,7 +4,6 @@ import toHHMMSS from './toHHMMSS';
 const {timer} = styles;
 const Timer = ({timeElapsed}) => {
     
-
     return (
         <div className={timer}>{toHHMMSS(timeElapsed)}</div>
     )

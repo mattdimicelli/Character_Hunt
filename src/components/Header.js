@@ -2,11 +2,11 @@ import styles from './cmptStyles/gameplayStyles.module.css';
 import Timer from './Timer';
 import CharactersLeftDisplayForHeader from './CharactersLeftDisplayForHeader';
 
-const { header, title } = styles;
+const { header, title, ultimateHeader } = styles;
 
-const Header = ({chars, charsFound, timeElapsed}) => {
+const Header = ({chars, charsFound, timeElapsed, mapName}) => {
     return (
-        <header className={header}>
+        <header className={mapName === 'Ultimate Space Battle' ? ultimateHeader : header}>
             <h1 className={title}>
                 <div>Char</div>
                 <div>Hunt</div>

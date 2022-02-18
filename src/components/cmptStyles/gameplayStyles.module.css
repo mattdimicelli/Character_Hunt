@@ -18,7 +18,7 @@
 .charIcons {
     display: none;
 }
-.footer {
+.footer, .ultimateFooter {
     position: absolute;
     bottom: 1.6%;
     display: flex;
@@ -40,7 +40,7 @@
 .gameplayParentDiv {
     position: relative;
 }
-.header {
+.header, .ultimateHeader {
     background-color: rgb(0, 0, 77);
     color: white;
     display: flex;
@@ -48,7 +48,7 @@
     padding: 0.25rem 0.5rem;
     align-items: center;
 }
-.imageMap {
+.imageMap, .ultimateMap {
     /* the numbers following the url are x & y coords for cursor hotspot */
     cursor: url('../../images/cursor32.png') 16 16, crosshair;
 }
@@ -108,8 +108,24 @@
     .header {
         justify-content: space-around;
     }
+    .ultimateFooter {
+        width: 200vw;
+    }
     .footerText {
         padding: 0.3rem 0.4rem;
+    }
+    .ultimateMap {
+        width: 200%;
+        position: relative;
+        top: 80px;
+        left: -8px;
+    }
+    .ultimateHeader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100vw;
     }
 }
 

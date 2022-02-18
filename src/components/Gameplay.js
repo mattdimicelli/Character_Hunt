@@ -18,7 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './cmptStyles/stylesToOverrideDefaultToastStyles.css';
 
 
-const { gameplayParentDiv, footer, footerText, imageMap } = styles;
+const { gameplayParentDiv, footer, footerText, imageMap, ultimateMap, ultimateFooter } = styles;
 
 const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
 
@@ -26,7 +26,7 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
         const timerInterval = setInterval(() => {
                 setTimeElapsed(timeElapsed => timeElapsed + 1);
             }, 1000);    
-    }, [timeElapsed]);
+    }, []);
 
     const {mapName, characters: chars} = map;
     let [charsFound, setCharsFound] = useState([]);
@@ -67,6 +67,7 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
                 chars={chars} 
                 charsFound={charsFound} 
                 timeElapsed={timeElapsed}
+                mapName={mapName}
             />
             <ToastContainer
                 position='top-center'
@@ -99,10 +100,20 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
                         map={mapArea}
                         onMapClick={mapClickHandler}
                         onClick={keepLooking}
+                        // the Ultimate Space Battle map is much wider than the 
+                        // other maps.  The 'ultimateMap' class is applied only 
+                        // to this map in order to have it appear "zoomed-in" enough
+                        // for the player to be able to identify and click on the 
+                        // characters
+                        className={ 
+                                mapName === 'Ultimate Space Battle' ? 
+                                ultimateMap 
+                                : 
+                                ''}
                     />
                 </span>
             </Tippy>
-            <footer className={footer}>
+            <footer className={mapName === 'Ultimate Space Battle' ? ultimateFooter : footer}>
                 <span className={footerText}>App by Matt Di Micelli</span>
             </footer>
         </div>
