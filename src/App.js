@@ -24,13 +24,16 @@ function App() {
       <div className="App">
 
         {map ?
-          <Gameplay map={map} timeElapsed={timeElapsed} setTimeElapsed={setTimeElapsed} />
+          <Gameplay map={map} timeElapsed={timeElapsed} setTimeElapsed={setTimeElapsed}
+          setGameOver={setGameOver} />
         :
           <img src={universe_113} alt='universe_113 drawing by Egor Klyuchnyk' />
         }
 
         { (!map || gameOver) &&
-        <MapSelectorOrHighScoresInModal setMap={setMap} timeElapsed={timeElapsed} gameOver={gameOver} currentMapPreview={currentMapPreview} setCurrentMapPreview={setCurrentMapPreview} map={map} />
+          <MapSelectorOrHighScoresInModal setMap={setMap} timeElapsed={timeElapsed} 
+          gameOver={gameOver} currentMapPreview={currentMapPreview} 
+          setCurrentMapPreview={setCurrentMapPreview} map={map} />
         }
       </div>
     </FirestoreProvider>

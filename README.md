@@ -65,4 +65,7 @@ of the associated component(s) as needed.
 Before I was trying to keep my JS line-lengths at 80 chars or below, however, I have realized that
 with JSX 80 chars are too few and in this project I keep my line length at or below 100 chars.
 
+While with React class components you could get a callback as a second argument to setState(), to 
+run after the state was updated, with the useState() hook a callback cannot be provided.  Instead,
+useEffect can be used to monitor for changes in the state and execute code then.
 

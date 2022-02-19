@@ -22,7 +22,7 @@ import { ImageMap } from '@qiuz/react-image-map';
 
 const { gameplayParentDiv, imageMap, ultimateImageMap } = styles;
 
-const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
+const Gameplay = ({ map, timeElapsed, setTimeElapsed, setGameOver }) => {
 
     useEffect(() => {
         const timerInterval = setInterval(() => {
@@ -78,6 +78,7 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed }) => {
                             charsFound={charsFound} 
                             targetCharClicked={targetCharClicked}
                             setCharsFound={setCharsFound}
+                            setGameOver={setGameOver}
                             hide={tippyDropdownInstance.hide}
                         /> : ''}
                 plugins={[followCursor]}

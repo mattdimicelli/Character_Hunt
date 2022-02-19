@@ -1,11 +1,12 @@
 import uniqid from 'uniqid';
 import { toast } from 'react-toastify';
+import { useEffect } from 'react';
 import styles from './cmptStyles/gameplayStyles.module.css';
 
 const { charChooserDropdown, chooserItem } = styles;
 
 const CharChooserDropdown = ({chars, charsFound, targetCharClicked, setCharsFound, 
-    hide: hideDropDown}) => {
+    hide: hideDropDown, setGameOver}) => {
 
     function keepLooking () {
         toast.error('Keep Looking!', {
@@ -33,6 +34,12 @@ const CharChooserDropdown = ({chars, charsFound, targetCharClicked, setCharsFoun
             hideDropDown();
         };
     }
+
+    useEffect(() => {
+        if (charsFound.length === 4) {
+            setGameOver(true);
+        }
+    }, [charsFound]);
 
     const charsLeft = chars.filter(char => charsFound.includes(char) ? false : true);
     const listOfCharsLeft = charsLeft.map(char => {
