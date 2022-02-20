@@ -9,17 +9,27 @@ const CharChooserDropdown = ({chars, charsFound, targetCharClicked, setCharsFoun
     hide: hideDropDown, setGameOver }) => {
 
     function keepLooking () {
-        toast.error('Keep Looking!', {
-            icon: false,
-            theme: 'colored',
-        });
+        const viewportWidth = window.innerWidth;
+        if (viewportWidth <= 899) {
+            alert('Keep Looking!');
+        } else {
+            toast.error('Keep Looking!', {
+                icon: false,
+                theme: 'colored',
+            });
+        }
     }
 
     function showFoundToast(char) {
-        toast.success(`You found ${char}!`, {
-            icon: false,
-            theme: 'colored',
-        });
+        const viewportWidth = window.innerWidth;
+        if (viewportWidth <= 899) {
+            alert (`You found ${char}!`);
+        } else {
+            toast.success(`You found ${char}!`, {
+                icon: false,
+                theme: 'colored',
+            });
+        }   
     }
 
     function clickHandler(e) {
