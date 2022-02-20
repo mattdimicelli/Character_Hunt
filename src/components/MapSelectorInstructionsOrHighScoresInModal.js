@@ -3,11 +3,15 @@ import OverlayElementforHighScores from './OverlayElementForHighScores';
 import OverlayElementForMapSelector from './OverlayElementForMapSelector';
 import MapSelector from './MapSelector';
 import HighScores from './HighScores';
+import Instructions from './Instructions';
+import { useState } from 'react';
 import styles from './cmptStyles/mapSelectorStyles.module.css';
 
 const {modalContent, overlay} = styles;
-const MapSelectorOrHighScoresInModal = ({setMap, timeElapsed, map, gameOver, 
+const MapSelectorInstructionsOrHighScoresInModal = ({setMap, timeElapsed, map, gameOver, 
     currentMapPreview, setCurrentMapPreview, setGameOver }) => {
+
+    let [instructionsAcknowledged, setInstructionsAcknowledged] = useState(false);
 
     const overlayElement = gameOver ? 
                            OverlayElementforHighScores 
@@ -24,10 +28,15 @@ const MapSelectorOrHighScoresInModal = ({setMap, timeElapsed, map, gameOver,
                overlayClassName={overlay}>
             
             {/* Due to how react-modal works, styles that are applied to the overlay "parent element" 
-            must be coded here by applying the overlayClassNAME (cannot code into either of the
+            must be coded here by applying the overlayClassName (cannot code into either of the
             OverlayElement files) */}
-                 
-            {!map && <MapSelector currentMapPreview={currentMapPreview} setMap={setMap} />}
+            {!instructionsAcknowledged && 
+                <Instructions setInstructionsAcknowledged={setInstructionsAcknowledged} />
+            }
+
+            {(!map && instructionsAcknowledged) &&
+                 <MapSelector currentMapPreview={currentMapPreview} setMap={setMap} />
+            }
 
             {gameOver && <HighScores timeElapsed={timeElapsed} setMap={setMap} setGameOver={setGameOver}
                                 setCurrentMapPreview={setCurrentMapPreview} />}
@@ -35,4 +44,4 @@ const MapSelectorOrHighScoresInModal = ({setMap, timeElapsed, map, gameOver,
     )
 }
 
-export default MapSelectorOrHighScoresInModal;
+export default MapSelectorInstructionsOrHighScoresInModal;

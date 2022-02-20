@@ -5,7 +5,8 @@ import { useState } from 'react';
 import './App.css';
 import universe_113 from './images/universe_113.jpg';
 import { ultimateSpaceBattle } from './components/OverlayElementForMapSelector';
-import MapSelectorOrHighScoresInModal from './components/MapSelectorOrHighScoresInModal';
+import MapSelectorInstructionsOrHighScoresInModal from 
+  './components/MapSelectorInstructionsOrHighScoresInModal';
 
 function App() {
   let [map, setMap] = useState(false);
@@ -31,7 +32,7 @@ function App() {
         }
 
         { (!map || gameOver) &&
-          <MapSelectorOrHighScoresInModal setMap={setMap} timeElapsed={timeElapsed} 
+          <MapSelectorInstructionsOrHighScoresInModal setMap={setMap} timeElapsed={timeElapsed} 
           gameOver={gameOver} currentMapPreview={currentMapPreview} 
           setCurrentMapPreview={setCurrentMapPreview} map={map} setGameOver={setGameOver} />
         }
