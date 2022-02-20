@@ -23,7 +23,7 @@ function App() {
     <FirestoreProvider sdk={firestore}>
       <div className="App">
 
-        {map ?
+        { (map && !gameOver) ?
           <Gameplay map={map} timeElapsed={timeElapsed} setTimeElapsed={setTimeElapsed}
           setGameOver={setGameOver} />
         :
@@ -33,7 +33,7 @@ function App() {
         { (!map || gameOver) &&
           <MapSelectorOrHighScoresInModal setMap={setMap} timeElapsed={timeElapsed} 
           gameOver={gameOver} currentMapPreview={currentMapPreview} 
-          setCurrentMapPreview={setCurrentMapPreview} map={map} />
+          setCurrentMapPreview={setCurrentMapPreview} map={map} setGameOver={setGameOver} />
         }
       </div>
     </FirestoreProvider>

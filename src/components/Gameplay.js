@@ -1,6 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { followCursor } from 'tippy.js';
 import Tippy from '@tippyjs/react';
+import {ClockLoader } from 'react-spinners';
+import { ImageMap } from '@qiuz/react-image-map';
+import { css } from '@emotion/react';
 import universe_113 from '../images/universe_113.jpg';
 import the_loc_nar from '../images/the_loc_nar.jpg';
 import ultimate_space_battle from '../images/ultimate_space_battle.jpg';
@@ -17,10 +20,9 @@ import 'tippy.js/themes/material.css';
 import styles from './cmptStyles/gameplayStyles.module.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './cmptStyles/stylesToOverrideDefaultToastStyles.css';
-import { ImageMap } from '@qiuz/react-image-map';
 
 
-const { gameplayParentDiv, imageMap, ultimateImageMap } = styles;
+const { gameplayParentDiv, imageMap, ultimateImageMap, imageMapDefault } = styles;
 
 const Gameplay = ({ map, timeElapsed, setTimeElapsed, setGameOver }) => {
 
@@ -35,6 +37,8 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed, setGameOver }) => {
     let [charsFound, setCharsFound] = useState([]);
     let [targetCharClicked, setTargetCharClicked] = useState(false);
     let [tippyDropdownInstance, setTippyDropdownInstance] = useState(null);
+
+    const loaderCSS = css` display: block; position: fixed; top: 50vh; left: 50vw;`;
 
     let mapImage;
     let mapArea;
@@ -88,12 +92,16 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed, setGameOver }) => {
                 onCreate={setTippyDropdownInstance}
             >
                 <span tabIndex='0' className={imageMap}>
+                    {/* since the clockLoader will get covered up by the imageMap once it finally 
+                    paints to the screen, it doesn't need to be programatically removed, so the 
+                    loading prop is set to a static true */}
+                    <ClockLoader loading={true} css={loaderCSS} color='#00004d' />
                     <ImageMap
                     src={mapImage}
                     map={mapArea}
                     onMapClick={(area, index) => mapClickHandler(setTargetCharClicked, area, index)}
                     onClick={() => setTargetCharClicked(false)}
-                    className={mapName === 'Ultimate Space Battle' ? ultimateImageMap : ''}
+                    className={mapName === 'Ultimate Space Battle' ? ultimateImageMap : imageMapDefault}
                     // the Ultimate Space Battle map is much wider than the 
                     // other maps.  The 'ultimateImageMap' class is applied only 
                     // to this map in order to have it appear "zoomed-in" enough

@@ -1,6 +1,7 @@
 .charactersLeftDisplayTopDiv {
     display: flex;
     align-items: center;
+    margin-right: 1rem;
 }
 .charChooserDropdown {
     list-style: none;
@@ -47,10 +48,24 @@
     justify-content: space-between;
     padding: 0.25rem 0.5rem;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1;
+    height: 70px;
 }
 .imageMap {
     /* the numbers following the url are x & y coords for cursor hotspot */
     cursor: url('../../images/cursor32.png') 16 16, crosshair;
+
+    top: 70px;
+    position: relative;
+    min-height: calc(100vh - 70px);
+    display: inline-block;   
+}
+.imageMapDefault {
+
 }
 
 .numberLeft {
@@ -63,6 +78,7 @@
     align-items: center;
     background-color: #9f0715;
     font-size: 1.5rem;
+    margin-right: 1rem;
 }
 
 .timer {
@@ -75,6 +91,12 @@
     line-height: 0.8;
     margin: 0;
     padding: 0;
+}
+
+.ultimateImageMap img {
+    min-height: calc(100vh - 70px);
+    object-fit: contain;
+    background-color: rgb(0, 0, 77);
 }
 
 .forDropdown {
@@ -93,7 +115,7 @@
     }
     .characterIcon {
         width: 100%;
-        max-height: 80px;
+        max-height: 70px;
     }
     .imageMap {
         /* the numbers following the url are x & y coords for cursor hotspot */
@@ -118,13 +140,13 @@
         /* react-image-map applies an unnecessary class that overrides this style unless if important */
         width: 6688px !important;
     }
-    .ultimateHeader {
+    /* .ultimateHeader {
         position: fixed;
         top: 0;
         left: 0;
         z-index: 1;
         width: 100vw;
-    }
+    } */
 }
 
 @media (min-width: 1200px) {

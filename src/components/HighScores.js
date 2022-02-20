@@ -4,11 +4,12 @@ import HighScore from './HighScore';
 import { uniqid } from 'uniqid';
 import styles from './cmptStyles/highScoreStyles.module.css';
 import toHHMMSS from './toHHMMSS';
+import { ultimateSpaceBattle } from './OverlayElementForMapSelector';
 
 const { rightSide, leftSide, modalContentTopDiv, scoreList, initialsInput,
     initialsForm, button, caption, time } = styles;
     
-const HighScores = ({timeElapsed}) => {
+const HighScores = ({timeElapsed, setMap, setGameOver, setTimeElapsed, setCurrentMapPreview}) => {
 
     // set up query
     const firestore = useFirestore();
@@ -25,6 +26,13 @@ const HighScores = ({timeElapsed}) => {
     const highScoresList = scores.map(score => (
         <HighScore key={uniqid()} score={score} />
     ));
+
+    function playAgain() {
+        setMap(false);
+        setGameOver(false);
+        setTimeElapsed(0);
+        setCurrentMapPreview(ultimateSpaceBattle);
+    }
 
     return (
         <div className={modalContentTopDiv}>
@@ -60,7 +68,7 @@ const HighScores = ({timeElapsed}) => {
                     />
                     <button type="button" className={button}>Submit</button>
                 </form>
-                <button type="button" className={button}>Play again</button>
+                <button type="button" className={button} onClick={playAgain}>Play again</button>
             </section>
         </div>
     )

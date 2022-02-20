@@ -36,13 +36,13 @@ function onUniverse113MapClick(setTargetCharClicked, area, index) {
             setTargetCharClicked('Johnny Bravo');
             break;
         case 1: 
-            setTargetCharClicked('Cat Dog');
+            setTargetCharClicked('CatDog');
             break;
         case 2: 
-            setTargetCharClicked('Bender');
+            setTargetCharClicked('Bender Rodriguez');
             break;
         case 3:
-            setTargetCharClicked('Predator');
+            setTargetCharClicked('Yautja');
             break;
     }
 }

@@ -7,7 +7,7 @@ import styles from './cmptStyles/mapSelectorStyles.module.css';
 
 const {modalContent, overlay} = styles;
 const MapSelectorOrHighScoresInModal = ({setMap, timeElapsed, map, gameOver, 
-    currentMapPreview, setCurrentMapPreview }) => {
+    currentMapPreview, setCurrentMapPreview, setGameOver }) => {
 
     const overlayElement = gameOver ? 
                            OverlayElementforHighScores 
@@ -29,7 +29,8 @@ const MapSelectorOrHighScoresInModal = ({setMap, timeElapsed, map, gameOver,
                  
             {!map && <MapSelector currentMapPreview={currentMapPreview} setMap={setMap} />}
 
-            {gameOver && <HighScores timeElapsed={timeElapsed} />}
+            {gameOver && <HighScores timeElapsed={timeElapsed} setMap={setMap} setGameOver={setGameOver}
+                                setCurrentMapPreview={setCurrentMapPreview} />}
         </ReactModal>
     )
 }

@@ -6,7 +6,7 @@ import styles from './cmptStyles/gameplayStyles.module.css';
 const { charChooserDropdown, chooserItem } = styles;
 
 const CharChooserDropdown = ({chars, charsFound, targetCharClicked, setCharsFound, 
-    hide: hideDropDown, setGameOver}) => {
+    hide: hideDropDown, setGameOver }) => {
 
     function keepLooking () {
         toast.error('Keep Looking!', {
@@ -24,7 +24,7 @@ const CharChooserDropdown = ({chars, charsFound, targetCharClicked, setCharsFoun
 
     function clickHandler(e) {
         const char = e.currentTarget.textContent;
-        if (targetCharClicked) {
+        if (targetCharClicked === char) {
             setCharsFound(charsFound => [...charsFound, char]);
             hideDropDown();
             showFoundToast(char);
