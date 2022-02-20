@@ -1,11 +1,11 @@
 import styles from './cmptStyles/mapSelectorStyles.module.css';
 
-const {instructions, startButton } = styles;
+const {instructions, startButton, wanted } = styles;
 const Instructions = ({setInstructionsAcknowledged}) => {
     return (
         <div className={instructions}>
-            <h1 style={{textTransform: 'uppercase', textAlign: 'center'}}>FBI Wanted Fugitives Alert</h1>
-            <h2 style={{textTransform: 'uppercase', textAlign: 'center'}}>Unlawful Flight to Avoid Prosecution - Kidnapping</h2>
+            <h1 className={wanted}>FBI Wanted Fugitives Alert</h1>
+            <h2 className={wanted}>Unlawful Flight to Avoid Prosecution - Kidnapping</h2>
             <p>The FBI is seeking information regarding several bands of fugitive pop-culture
             characters involved in the kidnapping of Waldo.  It is still unknown Where's Waldo,
             but the FBI has received reports that the fugitive bands might be in hiding in Universe 
@@ -18,7 +18,11 @@ const Instructions = ({setInstructionsAcknowledged}) => {
             reported.  These regions have been declared by the Department of State to be seedy,
             grimy, active war zones.  Lewd activities and violence of all types are commonplace
             among the 400+ characters which inhabit them.</p>
-            <button className={startButton} style={{textAlign: 'center'}} onClick={() => setInstructionsAcknowledged(true)}>
+            <button 
+                className={startButton} 
+                style={{alignSelf: 'center'}} 
+                onClick={() => setInstructionsAcknowledged(true)}
+            >
                 Acknowledge
             </button>
         </div>

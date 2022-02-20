@@ -1,6 +1,8 @@
-const HighScore = ({playerName, value}) => {
+import toHHMMSS from './toHHMMSS';
+
+const HighScore = ({initials, value}) => {
     return (
-        <li>{playerName} {value}</li>
+        <li>{initials} {toHHMMSS(value)}</li>
     );
 }
 

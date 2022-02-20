@@ -13,7 +13,7 @@ const MapSelectorInstructionsOrHighScoresInModal = ({setMap, timeElapsed, map, g
 
     let [instructionsAcknowledged, setInstructionsAcknowledged] = useState(false);
 
-    const overlayElement = gameOver ? 
+    const overlayElement = (gameOver || !instructionsAcknowledged) ? 
                            OverlayElementforHighScores 
                            :
                             (props, contentElement) => {
@@ -38,8 +38,9 @@ const MapSelectorInstructionsOrHighScoresInModal = ({setMap, timeElapsed, map, g
                  <MapSelector currentMapPreview={currentMapPreview} setMap={setMap} />
             }
 
-            {gameOver && <HighScores timeElapsed={timeElapsed} setMap={setMap} setGameOver={setGameOver}
-                                setCurrentMapPreview={setCurrentMapPreview} />}
+            {gameOver && <HighScores timeElapsed={timeElapsed} setMap={setMap} 
+                            setGameOver={setGameOver} setCurrentMapPreview={setCurrentMapPreview}
+                             setInstructionsAcknowledged={setInstructionsAcknowledged} />}
         </ReactModal>
     )
 }

@@ -1,7 +1,9 @@
-import { query, orderBy, collection, limit } from 'firebase/firestore';
+import { query, orderBy, collection, limit, addDoc } from 'firebase/firestore';
 import { useFirestore, useFirestoreCollectionData  } from 'reactfire';
+import { useState } from 'react';
+import {ClockLoader } from 'react-spinners';
 import HighScore from './HighScore';
-import { uniqid } from 'uniqid';
+import uniqid from 'uniqid';
 import styles from './cmptStyles/highScoreStyles.module.css';
 import toHHMMSS from './toHHMMSS';
 import { ultimateSpaceBattle } from './OverlayElementForMapSelector';
@@ -9,22 +11,26 @@ import { ultimateSpaceBattle } from './OverlayElementForMapSelector';
 const { rightSide, leftSide, modalContentTopDiv, scoreList, initialsInput,
     initialsForm, button, caption, time } = styles;
     
-const HighScores = ({timeElapsed, setMap, setGameOver, setTimeElapsed, setCurrentMapPreview}) => {
+const HighScores = ({timeElapsed, setMap, setGameOver, setTimeElapsed, setCurrentMapPreview,
+                        setInstructionsAcknowledged}) => {
+    let [initials, setInitials] = useState('');
+    
 
-    // set up query
-    const firestore = useFirestore();
-    const scoresCollection = collection(firestore, 'scores');
-    const scoresQuery = query(scoresCollection, orderBy('score', 'desc'), limit(5));
+     // set up query
+     const firestore = useFirestore();
+     const scoresCollection = collection(firestore, 'scores');
+     const scoresQuery = query(scoresCollection, orderBy('value', 'asc'), limit(10));
 
     //ReactFire
-    const { status, data: scores } = useFirestoreCollectionData(scoresQuery);
+     const { status, data: highScores } = useFirestoreCollectionData(scoresQuery);
 
-    if (status === 'loading') {
-        return <span>loading...</span>
-    } 
+     
+     if (status === 'loading') {
+         return <ClockLoader />
+    }
 
-    const highScoresList = scores.map(score => (
-        <HighScore key={uniqid()} score={score} />
+    const highScoresList = highScores.map(score => (
+        <HighScore key={uniqid()} value={score.value} initials={score.initials} />
     ));
 
     function playAgain() {
@@ -32,6 +38,19 @@ const HighScores = ({timeElapsed, setMap, setGameOver, setTimeElapsed, setCurren
         setGameOver(false);
         setTimeElapsed(0);
         setCurrentMapPreview(ultimateSpaceBattle);
+        setInstructionsAcknowledged(false);
+    }
+
+    async function addScoreToDB() {
+        console.log('ding')
+
+        
+        try {
+            await addDoc(scoresCollection, {value: timeElapsed, initials: initials});
+        }
+        catch (err) {
+            console.error(err)
+        }
     }
 
     return (
@@ -39,17 +58,8 @@ const HighScores = ({timeElapsed, setMap, setGameOver, setTimeElapsed, setCurren
             <figure className={leftSide}>
                 <figcaption className={caption}>High Scores</figcaption>
                 <ol className={scoreList}>
-                    {scores.length > 0 && highScoresList}
-                    <li>MRD 00:00:00</li>
-                    <li>MRD 00:00:00</li>
-                    <li>MRD 00:00:00</li>
-                    <li>MRD 00:00:00</li>
-                    <li>MRD 00:00:00</li>
-                    <li>MRD 00:00:00</li>
-                    <li>MRD 00:00:00</li>
-                    <li>MRD 00:00:00</li>
-                    <li>MRD 00:00:00</li>
-                    <li>MRD 00:00:00</li>
+                    {highScores.length > 0 && highScoresList}
+                
                 </ol>
             </figure>
             <section className={rightSide}>
@@ -58,15 +68,17 @@ const HighScores = ({timeElapsed, setMap, setGameOver, setTimeElapsed, setCurren
                     <span className={time}>{toHHMMSS(timeElapsed)}</span>
                 </figure>
                 <form className={initialsForm}>
-                    <label for='initials'>Enter your initials:</label>
+                    <label htmlFor='initials'>Enter your initials:</label>
                     <input 
                         type="text" 
                         id='initials' 
                         className={initialsInput} 
                         maxLength='3'
-                        placeholder='XYZ' 
+                        placeholder='XYZ'
+                        value={initials}
+                        onChange={(e) => setInitials(e.currentTarget.value)} 
                     />
-                    <button type="button" className={button}>Submit</button>
+                    <button type="button" className={button} onClick={addScoreToDB}>Submit</button>
                 </form>
                 <button type="button" className={button} onClick={playAgain}>Play again</button>
             </section>
