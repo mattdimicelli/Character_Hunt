@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/Character_Hunt/static/css/main.85af3aa0.css",
+    "main.js": "/Character_Hunt/static/js/main.4d2a1c59.js",
+    "static/js/787.6e6969b9.chunk.js": "/Character_Hunt/static/js/787.6e6969b9.chunk.js",
+    "static/media/ultimate_space_battle.jpg": "/Character_Hunt/static/media/ultimate_space_battle.b47ecadeb75dcfcd8d79.jpg",
+    "static/media/the_loc_nar.jpg": "/Character_Hunt/static/media/the_loc_nar.314cec99f414807b7e27.jpg",
+    "static/media/universe_113_preview.jpg": "/Character_Hunt/static/media/universe_113_preview.7a356dd278045f23593c.jpg",
+    "static/media/the_loc_nar_preview.jpg": "/Character_Hunt/static/media/the_loc_nar_preview.963191fc5cf4f4e7281e.jpg",
+    "static/media/universe_113.jpg": "/Character_Hunt/static/media/universe_113.0d4fe7c106039f77baa0.jpg",
+    "static/media/ultimate_space_battle_preview.jpg": "/Character_Hunt/static/media/ultimate_space_battle_preview.7eb1e3eeb5614fa36d20.jpg",
+    "static/media/link.png": "/Character_Hunt/static/media/link.b229a2e0214ee217217b.png",
+    "static/media/predator.png": "/Character_Hunt/static/media/predator.cbd870cbce1e9ba430d2.png",
+    "static/media/martian.png": "/Character_Hunt/static/media/martian.b63394a21db68ed5a34a.png",
+    "static/media/bender.png": "/Character_Hunt/static/media/bender.7c9aaf2601af7c1a3400.png",
+    "static/media/ryuk.png": "/Character_Hunt/static/media/ryuk.b8afe24f0b6ec3cba372.png",
+    "static/media/batman.png": "/Character_Hunt/static/media/batman.8313d18237334604e9a7.png",
+    "static/media/catdog.webp": "/Character_Hunt/static/media/catdog.51e91c89c83e19ea74f2.webp",
+    "static/media/rocko.png": "/Character_Hunt/static/media/rocko.271202805f1905910236.png",
+    "static/media/bugs_bunny.png": "/Character_Hunt/static/media/bugs_bunny.c16e273ee8eeea5c1645.png",
+    "static/media/johnny2.webp": "/Character_Hunt/static/media/johnny2.308bba8245daa908d4ae.webp",
+    "static/media/thomas_the_tank_engine.png": "/Character_Hunt/static/media/thomas_the_tank_engine.4718d521d942337b6bb5.png",
+    "static/media/cursor128.png": "/Character_Hunt/static/media/cursor128.aef361851315058d7001.png",
+    "index.html": "/Character_Hunt/index.html",
+    "main.85af3aa0.css.map": "/Character_Hunt/static/css/main.85af3aa0.css.map",
+    "main.4d2a1c59.js.map": "/Character_Hunt/static/js/main.4d2a1c59.js.map",
+    "787.6e6969b9.chunk.js.map": "/Character_Hunt/static/js/787.6e6969b9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.85af3aa0.css",
+    "static/js/main.4d2a1c59.js"
+  ]
+}
