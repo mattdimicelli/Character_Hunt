@@ -27,7 +27,7 @@ function App() {
           <Gameplay map={map} timeElapsed={timeElapsed} setTimeElapsed={setTimeElapsed}
           setGameOver={setGameOver} />
         :
-          <img src={universe_113} alt='universe_113 drawing by Egor Klyuchnyk' />
+          <img style={{height: '100vh', objectFit: 'cover', width: '100vw'}} src={universe_113} alt='universe_113 drawing by Egor Klyuchnyk' />
         }
 
         { (!map || gameOver) &&

@@ -49,6 +49,7 @@
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     outline: none;
+    max-width: 100vw;
 }
 
 .modalContentTopDiv {
