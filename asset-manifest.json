@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Character_Hunt/static/css/main.85af3aa0.css",
-    "main.js": "/Character_Hunt/static/js/main.4d2a1c59.js",
+    "main.css": "/Character_Hunt/static/css/main.583e3911.css",
+    "main.js": "/Character_Hunt/static/js/main.73e248f4.js",
     "static/js/787.6e6969b9.chunk.js": "/Character_Hunt/static/js/787.6e6969b9.chunk.js",
     "static/media/ultimate_space_battle.jpg": "/Character_Hunt/static/media/ultimate_space_battle.b47ecadeb75dcfcd8d79.jpg",
     "static/media/the_loc_nar.jpg": "/Character_Hunt/static/media/the_loc_nar.314cec99f414807b7e27.jpg",
@@ -22,12 +22,12 @@
     "static/media/thomas_the_tank_engine.png": "/Character_Hunt/static/media/thomas_the_tank_engine.4718d521d942337b6bb5.png",
     "static/media/cursor128.png": "/Character_Hunt/static/media/cursor128.aef361851315058d7001.png",
     "index.html": "/Character_Hunt/index.html",
-    "main.85af3aa0.css.map": "/Character_Hunt/static/css/main.85af3aa0.css.map",
-    "main.4d2a1c59.js.map": "/Character_Hunt/static/js/main.4d2a1c59.js.map",
+    "main.583e3911.css.map": "/Character_Hunt/static/css/main.583e3911.css.map",
+    "main.73e248f4.js.map": "/Character_Hunt/static/js/main.73e248f4.js.map",
     "787.6e6969b9.chunk.js.map": "/Character_Hunt/static/js/787.6e6969b9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.85af3aa0.css",
-    "static/js/main.4d2a1c59.js"
+    "static/css/main.583e3911.css",
+    "static/js/main.73e248f4.js"
   ]
 }
