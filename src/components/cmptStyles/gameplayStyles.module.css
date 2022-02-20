@@ -55,6 +55,12 @@
     z-index: 1;
     height: 70px;
 }
+
+.ultimateHeader {
+    right: 0;
+    bottom: 70px;
+    width: auto;
+}
 .imageMap {
     /* the numbers following the url are x & y coords for cursor hotspot */
     cursor: url('../../images/cursor32.png') 16 16, crosshair;
