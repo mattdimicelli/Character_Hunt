@@ -95,7 +95,7 @@
 
 .ultimateImageMap img {
     min-height: calc(100vh - 70px);
-    object-fit: contain;
+    width: auto;
     background-color: rgb(0, 0, 77);
 }
 
