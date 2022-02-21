@@ -95,7 +95,7 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed, setGameOver }) => {
                     {/* since the clockLoader will get covered up by the imageMap once it finally 
                     paints to the screen, it doesn't need to be programatically removed, so the 
                     loading prop is set to a static true */}
-                    <ClockLoader loading={true} css={loaderCSS} color='#00004d' />
+                    <ClockLoader loading={true} css={loaderCSS} color='#FFFFFF' />
                     <ImageMap
                     src={mapImage}
                     map={mapArea}

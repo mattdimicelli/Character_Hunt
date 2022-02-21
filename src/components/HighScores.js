@@ -8,12 +8,15 @@ import styles from './cmptStyles/highScoreStyles.module.css';
 import toHHMMSS from './toHHMMSS';
 import { ultimateSpaceBattle } from './OverlayElementForMapSelector';
 import ScoreSubmitForm from './ScoreSubmitForm';
+import { css } from '@emotion/react';
 
 const { rightSide, leftSide, modalContentTopDiv, scoreList, button, caption, time } = styles;
     
 const HighScores = ({timeElapsed, setMap, setGameOver, setTimeElapsed, setCurrentMapPreview,
                         setInstructionsAcknowledged}) => {
     let [showScoreSubmitForm, setShowScoreSubmitForm] = useState(true);
+
+    const loaderCSS = css`display: block; position: relative; top: 50%; left: 50%;`;
     
 
      // set up query
@@ -26,7 +29,7 @@ const HighScores = ({timeElapsed, setMap, setGameOver, setTimeElapsed, setCurren
 
      
      if (status === 'loading') {
-         return <ClockLoader />
+         return <ClockLoader css={loaderCSS} />
     }
 
     const highScoresList = highScores.map(score => (
