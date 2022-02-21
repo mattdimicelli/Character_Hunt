@@ -4,14 +4,13 @@ import OverlayElementForMapSelector from './OverlayElementForMapSelector';
 import MapSelector from './MapSelector';
 import HighScores from './HighScores';
 import Instructions from './Instructions';
-import { useState } from 'react';
 import styles from './cmptStyles/mapSelectorStyles.module.css';
 
 const {modalContent, overlay} = styles;
 const MapSelectorInstructionsOrHighScoresInModal = ({setMap, timeElapsed, map, gameOver, 
-    currentMapPreview, setCurrentMapPreview, setGameOver }) => {
+    currentMapPreview, setCurrentMapPreview, setGameOver, instructionsAcknowledged,
+    setInstructionsAcknowledged, setTimeElapsed }) => {
 
-    let [instructionsAcknowledged, setInstructionsAcknowledged] = useState(false);
 
     const overlayElement = (gameOver || !instructionsAcknowledged) ? 
                            OverlayElementforHighScores 
@@ -40,7 +39,8 @@ const MapSelectorInstructionsOrHighScoresInModal = ({setMap, timeElapsed, map, g
 
             {gameOver && <HighScores timeElapsed={timeElapsed} setMap={setMap} 
                             setGameOver={setGameOver} setCurrentMapPreview={setCurrentMapPreview}
-                             setInstructionsAcknowledged={setInstructionsAcknowledged} />}
+                             setInstructionsAcknowledged={setInstructionsAcknowledged}
+                             setTimeElapsed={setTimeElapsed} />}
         </ReactModal>
     )
 }

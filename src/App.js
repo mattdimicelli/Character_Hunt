@@ -13,6 +13,8 @@ function App() {
   let [gameOver, setGameOver] = useState(false);
   let [timeElapsed, setTimeElapsed] = useState(0);
   let [currentMapPreview, setCurrentMapPreview] = useState(ultimateSpaceBattle);
+  let [instructionsAcknowledged, setInstructionsAcknowledged] = useState(false);
+
 
   // Initialize firebase
   const app = useFirebaseApp();  //index.js contains FirebaseAppProvider
@@ -34,7 +36,10 @@ function App() {
         { (!map || gameOver) &&
           <MapSelectorInstructionsOrHighScoresInModal setMap={setMap} timeElapsed={timeElapsed} 
           gameOver={gameOver} currentMapPreview={currentMapPreview} 
-          setCurrentMapPreview={setCurrentMapPreview} map={map} setGameOver={setGameOver} />
+          setCurrentMapPreview={setCurrentMapPreview} map={map} setGameOver={setGameOver}
+          instructionsAcknowledged={instructionsAcknowledged} 
+          setInstructionsAcknowledged={setInstructionsAcknowledged}
+          setTimeElapsed={setTimeElapsed} />
         }
       </div>
     </FirestoreProvider>
