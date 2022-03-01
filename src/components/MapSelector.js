@@ -8,11 +8,7 @@ const MapSelector = ({currentMapPreview, setMap}) => {
     const {characters, mapName, previewImgPath, imgAlt} = currentMapPreview;
     return (
         <div className={modalContentTopDiv}>
-            <img
-                className={preview}
-                src={previewImgPath}
-                alt={imgAlt}
-            />
+            <img className={preview} src={previewImgPath} alt={imgAlt}/>
             <MapDescription 
                 characters={characters} 
                 mapName={mapName} 

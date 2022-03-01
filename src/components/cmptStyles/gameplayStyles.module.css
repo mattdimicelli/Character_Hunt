@@ -146,13 +146,6 @@
         /* react-image-map applies an unnecessary class that overrides this style unless if important */
         width: 6688px !important;
     }
-    /* .ultimateHeader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        width: 100vw;
-    } */
 }
 
 @media (min-width: 1200px) {

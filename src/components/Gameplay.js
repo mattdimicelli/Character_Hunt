@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { followCursor } from 'tippy.js';
 import Tippy from '@tippyjs/react';
 import {ClockLoader } from 'react-spinners';
@@ -12,7 +12,6 @@ import { onTheLocNarMapClick, theLocNarMapArea } from './theLocNarMap';
 import {onUltimateSpaceBattleMapClick, ultimateSpaceBattleMapArea} from './ultimateSpaceBattleMap';
 import CharChooserDropdown from './CharChooserDropdown';
 import MyToastContainer from './MyToastContainer';
-import Trigger from './Trigger';
 import Header from './Header';
 import Footer from './Footer';
 import 'tippy.js/dist/tippy.css'; 
@@ -91,6 +90,9 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed, setGameOver }) => {
                 interactive='true'
                 onCreate={setTippyDropdownInstance}
             >
+            {/* Normally for component elements that are children of the Tippy cmpt, would have to 
+            forward ref.  Since <ImageMap> comes from a library and unable to do so, workaround is 
+            wrapping with the <span>  */}
                 <span tabIndex='0' className={imageMap}>
                     {/* since the clockLoader will get covered up by the imageMap once it finally 
                     paints to the screen, it doesn't need to be programatically removed, so the 
@@ -108,8 +110,7 @@ const Gameplay = ({ map, timeElapsed, setTimeElapsed, setGameOver }) => {
                     // for the player to be able to identify and click on the 
                     // characters
                     />
-            </span>
-                {/* <Trigger img={mapImage} area={mapArea} handler={mapClickHandler} setTargetCharClicked={setTargetCharClicked} name={mapName}/> */}
+                </span>
             </Tippy>
 
             <Footer mapName={mapName} />
