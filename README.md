@@ -9,7 +9,7 @@ three stunning illustrations (which I refer to as "maps"): Ultimate Space Battle
 The Loc Nar.  All which were drawn by Egor Klyuchnyk, an illustrator and concept artist from Kyiv, 
 Ukraine. 
 
-I paid Egor for his work and contacted him to make sure that it was OK to use his artwork in my 
+I paid Egor for his work and contacted him to make sure that it was OK to use his artwork in my app
 , which he agreed to.
 
 
