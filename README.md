@@ -4,7 +4,7 @@
 ## Overview
 
 A Where's Waldo type game in which you must find only a few select characters out of hundreds of 
-your favorites from TV, movie, video game, comic book, and pop-culture .  The player can choose from
+your favorites from TV, movies, video games, comic books, and pop-culture .  The player can choose from
 three stunning illustrations (which I refer to as "maps"): Ultimate Space Battle, Universe 113, and 
 The Loc Nar.  All which were drawn by Egor Klyuchnyk, an illustrator and concept artist from Kyiv, 
 Ukraine. 
