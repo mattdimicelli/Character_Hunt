@@ -77,5 +77,5 @@ const OverlayElementForMapSelector
     )
 };
 
-export { ultimateSpaceBattle };
+export { theLocNar };
 export default OverlayElementForMapSelector;

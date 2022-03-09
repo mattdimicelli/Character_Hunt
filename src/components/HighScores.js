@@ -6,7 +6,7 @@ import HighScore from './HighScore';
 import uniqid from 'uniqid';
 import styles from './cmptStyles/highScoreStyles.module.css';
 import toHHMMSS from './toHHMMSS';
-import { ultimateSpaceBattle } from './OverlayElementForMapSelector';
+import { theLocNar } from './OverlayElementForMapSelector';
 import ScoreSubmitForm from './ScoreSubmitForm';
 import { css } from '@emotion/react';
 
@@ -40,7 +40,7 @@ const HighScores = ({timeElapsed, setMap, setGameOver, setTimeElapsed, setCurren
         setMap(false);
         setGameOver(false);
         setTimeElapsed(0);
-        setCurrentMapPreview(ultimateSpaceBattle);
+        setCurrentMapPreview(theLocNar);
         setInstructionsAcknowledged(false);
     }
 
