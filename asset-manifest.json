@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Character_Hunt/static/css/main.9cf4a219.css",
-    "main.js": "/Character_Hunt/static/js/main.bf457fe3.js",
+    "main.js": "/Character_Hunt/static/js/main.acb5dfd4.js",
     "static/js/787.6e6969b9.chunk.js": "/Character_Hunt/static/js/787.6e6969b9.chunk.js",
     "static/media/ultimate_space_battle.jpg": "/Character_Hunt/static/media/ultimate_space_battle.b47ecadeb75dcfcd8d79.jpg",
     "static/media/the_loc_nar.jpg": "/Character_Hunt/static/media/the_loc_nar.314cec99f414807b7e27.jpg",
@@ -24,11 +24,11 @@
     "static/media/cursor128.png": "/Character_Hunt/static/media/cursor128.aef361851315058d7001.png",
     "index.html": "/Character_Hunt/index.html",
     "main.9cf4a219.css.map": "/Character_Hunt/static/css/main.9cf4a219.css.map",
-    "main.bf457fe3.js.map": "/Character_Hunt/static/js/main.bf457fe3.js.map",
+    "main.acb5dfd4.js.map": "/Character_Hunt/static/js/main.acb5dfd4.js.map",
     "787.6e6969b9.chunk.js.map": "/Character_Hunt/static/js/787.6e6969b9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9cf4a219.css",
-    "static/js/main.bf457fe3.js"
+    "static/js/main.acb5dfd4.js"
   ]
 }
