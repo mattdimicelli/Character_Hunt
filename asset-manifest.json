@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Character_Hunt/static/css/main.b9f0f27b.css",
-    "main.js": "/Character_Hunt/static/js/main.1eb97a6c.js",
+    "main.css": "/Character_Hunt/static/css/main.9cf4a219.css",
+    "main.js": "/Character_Hunt/static/js/main.bf457fe3.js",
     "static/js/787.6e6969b9.chunk.js": "/Character_Hunt/static/js/787.6e6969b9.chunk.js",
     "static/media/ultimate_space_battle.jpg": "/Character_Hunt/static/media/ultimate_space_battle.b47ecadeb75dcfcd8d79.jpg",
     "static/media/the_loc_nar.jpg": "/Character_Hunt/static/media/the_loc_nar.314cec99f414807b7e27.jpg",
@@ -17,17 +17,18 @@
     "static/media/batman.png": "/Character_Hunt/static/media/batman.8313d18237334604e9a7.png",
     "static/media/catdog.webp": "/Character_Hunt/static/media/catdog.51e91c89c83e19ea74f2.webp",
     "static/media/rocko.png": "/Character_Hunt/static/media/rocko.271202805f1905910236.png",
+    "static/media/clock2.gif": "/Character_Hunt/static/media/clock2.8f9ee9dfd5c562f4dbc0.gif",
     "static/media/bugs_bunny.png": "/Character_Hunt/static/media/bugs_bunny.c16e273ee8eeea5c1645.png",
     "static/media/johnny2.webp": "/Character_Hunt/static/media/johnny2.308bba8245daa908d4ae.webp",
     "static/media/thomas_the_tank_engine.png": "/Character_Hunt/static/media/thomas_the_tank_engine.4718d521d942337b6bb5.png",
     "static/media/cursor128.png": "/Character_Hunt/static/media/cursor128.aef361851315058d7001.png",
     "index.html": "/Character_Hunt/index.html",
-    "main.b9f0f27b.css.map": "/Character_Hunt/static/css/main.b9f0f27b.css.map",
-    "main.1eb97a6c.js.map": "/Character_Hunt/static/js/main.1eb97a6c.js.map",
+    "main.9cf4a219.css.map": "/Character_Hunt/static/css/main.9cf4a219.css.map",
+    "main.bf457fe3.js.map": "/Character_Hunt/static/js/main.bf457fe3.js.map",
     "787.6e6969b9.chunk.js.map": "/Character_Hunt/static/js/787.6e6969b9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9f0f27b.css",
-    "static/js/main.1eb97a6c.js"
+    "static/css/main.9cf4a219.css",
+    "static/js/main.bf457fe3.js"
   ]
 }
